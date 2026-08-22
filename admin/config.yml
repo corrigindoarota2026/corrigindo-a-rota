@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "✝ Novo artigo: {{slug}}"
+    update: "✏️ Atualizado: {{slug}}"
+    delete: "🗑️ Removido: {{slug}}"
+    uploadMedia: "📷 Nova imagem: {{path}}"
+    deleteMedia: "🗑️ Imagem removida: {{path}}"
+
+local_backend: true
+
+media_folder: "static/img"
+public_folder: "/static/img"
+
+site_url: https://www.corrigindoarota.com.br
+display_url: https://www.corrigindoarota.com.br
+
+locale: pt
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: "artigos"
+    label: "📜 Artigos e Estudos"
+    label_singular: "Artigo"
+    folder: "content/artigos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Status", name: "status", widget: "select", options: ["rascunho", "publicado"], default: "rascunho" }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Resumo", name: "description", widget: "text" }
+      - { label: "Categoria", name: "category", widget: "select", options: ["heresias", "teologia", "manuscritos", "falsos-mestres", "testamento", "vida-crista", "alertas", "pais-igreja", "apologetica"] }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Tempo de Leitura (min)", name: "reading_time", widget: "number", default: 10 }
+      - { label: "Imagem de Capa", name: "featured_image", widget: "image", required: false }
+      - { label: "Corpo do Artigo", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Autor", name: "author", widget: "string", default: "Corrigindo a Rota" }

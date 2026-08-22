@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigo — Corrigindo a Rota</title>
+    <meta name="description" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0705; --bg-cave: #140f0b; --bg-card: #1c1510;
+            --gold: #b8922e; --gold-bright: #d4a843; --gold-dark: #8a6d22; --gold-dim: #6b5519;
+            --text: #d4c8b5; --text-muted: #8c7b68; --text-faint: #5a4d3e;
+            --red: #8b3a3a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: 'Crimson Text', serif;
+            font-size: 20px; line-height: 1.9;
+        }
+        body::before {
+            content: ''; position: fixed; inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(42,33,24,0.3) 0%, transparent 50%);
+            pointer-events: none; z-index: 0;
+        }
+
+        .nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10,7,5,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,146,46,0.1);
+            padding: 0 2rem;
+        }
+        .nav-inner {
+            max-width: 800px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .back-link {
+            color: var(--gold); text-decoration: none;
+            font-family: 'Cinzel', serif; font-size: 0.8rem;
+            letter-spacing: 2px; text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .back-link:hover { color: var(--gold-bright); }
+        .nav-brand {
+            font-family: 'Cinzel', serif; font-size: 0.75rem;
+            color: var(--text-faint); letter-spacing: 2px;
+        }
+
+        .article-container {
+            max-width: 800px; margin: 0 auto;
+            padding: 3rem 2rem 6rem;
+            position: relative; z-index: 1;
+        }
+
+        .article-meta {
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.75rem; color: var(--gold);
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h1.article-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--gold-bright);
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .article-intro {
+            font-family: 'IM Fell English', serif;
+            font-size: 1.25rem; font-style: italic;
+            color: var(--text-muted); line-height: 1.7;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(184,146,46,0.1);
+        }
+
+        .featured-verse {
+            background: linear-gradient(135deg, rgba(28,21,16,0.9), rgba(20,15,11,0.9));
+            border-left: 3px solid var(--gold);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        }
+        .featured-verse blockquote {
+            font-family: 'IM Fell English', serif;
+            font-size: 1.2rem; font-style: italic;
+            color: #e6dcce; line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+        .featured-verse cite {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem; color: var(--gold);
+            letter-spacing: 2px; text-transform: uppercase;
+            font-style: normal;
+        }
+
+        /* Conteúdo do artigo (Markdown renderizado) */
+        .article-body h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold); font-size: 1.5rem;
+            margin: 3rem 0 1.2rem; letter-spacing: 1px;
+        }
+        .article-body h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-dark); font-size: 1.2rem;
+            margin: 2.5rem 0 1rem;
+        }
+        .article-body p { margin-bottom: 1.8rem; }
+        .article-body p:first-of-type::first-letter {
+            font-size: 3.5rem; float: left; line-height: 1;
+            margin-right: 10px; color: var(--gold-bright);
+            font-family: 'Cinzel', serif;
+        }
+        .article-body blockquote {
+            background: rgba(28,21,16,0.6);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #c4b396;
+        }
+        .article-body strong { color: var(--gold-bright); }
+        .article-body em { color: var(--text-muted); }
+        .article-body a {
+            color: var(--gold); text-decoration: underline;
+            text-decoration-color: var(--gold-dim);
+            transition: all 0.3s;
+        }
+        .article-body a:hover { color: var(--gold-bright); }
+        .article-body ul, .article-body ol {
+            padding-left: 1.5rem; margin-bottom: 1.5rem;
+        }
+        .article-body li { margin-bottom: 0.5rem; color: var(--text-muted); }
+        .article-body li::marker { color: var(--gold-dim); }
+        .article-body img {
+            max-width: 100%; height: auto;
+            margin: 2rem 0;
+            border: 1px solid rgba(184,146,46,0.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+        .article-body code {
+            background: rgba(184,146,46,0.1);
+            color: var(--gold-bright);
+            padding: 2px 6px;
+            font-size: 0.9em;
+            border-radius: 2px;
+        }
+        .article-body pre {
+            background: var(--bg-cave);
+            border: 1px solid rgba(184,146,46,0.1);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        .article-body hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+            margin: 3rem 0;
+        }
+
+        .article-tags {
+            display: flex; flex-wrap: wrap; gap: 0.5rem;
+            margin-top: 3rem; padding-top: 2rem;
+            border-top: 1px solid rgba(184,146,46,0.06);
+        }
+        .tag {
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.65rem; color: var(--gold-dim);
+            letter-spacing: 1.5px; text-transform: uppercase;
+            border: 1px solid rgba(184,146,46,0.1);
+            padding: 3px 10px;
+        }
+
+        .share-section {
+            margin-top: 3rem; padding: 2rem;
+            background: rgba(28,21,16,0.5);
+            border: 1px solid rgba(184,146,46,0.08);
+            text-align: center;
+        }
+        .share-section h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem; color: var(--gold-dark);
+            letter-spacing: 2px; text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .share-btn {
+            display: inline-block;
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.75rem; letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--bg); background: var(--gold);
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0.3rem;
+            transition: all 0.3s;
+        }
+        .share-btn:hover {
+            background: var(--gold-bright);
+            box-shadow: 0 0 15px rgba(212,168,67,0.3);
+        }
+
+        .loading {
+            text-align: center; padding: 6rem 2rem;
+            color: var(--gold-dark);
+            font-family: 'IM Fell English SC', serif;
+            letter-spacing: 3px; font-size: 0.8rem;
+        }
+
+        .error {
+            text-align: center; padding: 6rem 2rem;
+            color: var(--text-muted);
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .article-container { padding: 2rem 1.5rem 4rem; }
+            body { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav" aria-label="Navegação">
+        <div class="nav-inner">
+            <a href="/artigos/" class="back-link">← Todos os Artigos</a>
+            <span class="nav-brand">Corrigindo a Rota</span>
+        </div>
+    </nav>
+
+    <div class="loading" id="loading">Carregando artigo...</div>
+    <div class="error" id="error" style="display:none;">Artigo não encontrado.</div>
+
+    <article class="article-container" id="articleContainer" style="display:none;">
+        <div class="article-meta" id="articleMeta"></div>
+        <h1 class="article-title" id="articleTitle"></h1>
+        <p class="article-intro" id="articleIntro"></p>
+        <div id="featuredVerse"></div>
+        <div class="article-body" id="articleBody"></div>
+        <div class="article-tags" id="articleTags"></div>
+        <div class="share-section">
+            <h4>Compartilhe esta verdade</h4>
+            <a href="#" class="share-btn" id="shareWhatsapp" target="_blank">WhatsApp</a>
+            <a href="#" class="share-btn" id="shareTwitter" target="_blank">Twitter / X</a>
+            <a href="#" class="share-btn" id="shareFacebook" target="_blank">Facebook</a>
+        </div>
+    </article>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+    <script>
+        const CATEGORY_LABELS = {
+            'heresias': 'Heresias Históricas', 'teologia': 'Teologia Bíblica',
+            'manuscritos': 'Manuscritos & Traduções', 'falsos-mestres': 'Falsos Mestres',
+            'testamento': 'Antigo & Novo Testamento', 'vida-crista': 'Vida Cristã Autêntica',
+            'alertas': 'Alertas & Denúncias', 'pais-igreja': 'Pais da Igreja',
+            'apologetica': 'Apologética'
+        };
+
+        async function loadArticle() {
+            const params = new URLSearchParams(window.location.search);
+            const slug = params.get('slug');
+
+            if (!slug) {
+                showError();
+                return;
+            }
+
+            try {
+                const GITHUB_USER = 'SEU_USUARIO';
+                const GITHUB_REPO = 'corrigindo-a-rota';
+                const BRANCH = 'main';
+
+                const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/content/artigos?ref=${BRANCH}`;
+                const response = await fetch(apiUrl);
+                const files = await response.json();
+
+                const file = files.find(f => f.name === `${slug}.md`);
+                if (!file) { showError(); return; }
+
+                const contentResponse = await fetch(file.download_url);
+                const content = await contentResponse.text();
+
+                const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+                if (!match) { showError(); return; }
+
+                const data = jsyaml.load(match[1]);
+                const body = match[2];
+
+                renderArticle(data, body, slug);
+            } catch (error) {
+                console.error(error);
+                showError();
+            }
+        }
+
+        function renderArticle(data, body, slug) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('articleContainer').style.display = 'block';
+
+            const dateObj = new Date(data.date);
+            const dateFormatted = dateObj.toLocaleDateString('pt-BR', {
+                day: 'numeric', month: 'long', year: 'numeric'
+            });
+            const catLabel = CATEGORY_LABELS[data.category] || data.category;
+
+            document.getElementById('articleMeta').textContent =
+                `${catLabel} • ${dateFormatted} • ${data.reading_time} min de leitura`;
+            document.getElementById('articleTitle').textContent = data.title;
+            document.getElementById('articleIntro').textContent = data.description;
+
+            // Versículo em destaque
+            if (data.featured_verse && data.featured_verse.text) {
+                document.getElementById('featuredVerse').innerHTML = `
+                    <div class="featured-verse">
+                        <blockquote>${data.featured_verse.text}</blockquote>
+                        <cite>— ${data.featured_verse.reference} —</cite>
+                    </div>
+                `;
+            }
+
+            // Corpo do artigo
+            document.getElementById('articleBody').innerHTML = marked.parse(body);
+
+            // Tags
+            if (data.tags && data.tags.length > 0) {
+                document.getElementById('articleTags').innerHTML =
+                    data.tags.map(t => `<span class="tag">${t}</span>`).join('');
+            }
+
+            // SEO dinâmico
+            const url = window.location.href;
+            document.title = `${data.title} — Corrigindo a Rota`;
+            document.querySelector('meta[name="description"]').content = data.description;
+            document.querySelector('meta[property="og:title"]').content = data.title;
+            document.querySelector('meta[property="og:description"]').content = data.description;
+            document.querySelector('meta[property="og:url"]').content = url;
+            if (data.featured_image) {
+                document.querySelector('meta[property="og:image"]').content = data.featured_image;
+            }
+            document.querySelector('link[rel="canonical"]').href = url;
+
+            // Schema.org Article
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": data.title,
+                "description": data.description,
+                "datePublished": data.date,
+                "author": { "@type": "Organization", "name": data.author || "Corrigindo a Rota" },
+                "publisher": { "@type": "Organization", "name": "Corrigindo a Rota" },
+                "mainEntityOfPage": url,
+                "articleSection": catLabel,
+                "inLanguage": "pt-BR"
+            };
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.textContent = JSON.stringify(schema);
+            document.head.appendChild(script);
+
+            // Botões de compartilhar
+            const shareText = encodeURIComponent(`${data.title} — Corrigindo a Rota`);
+            const shareUrl = encodeURIComponent(url);
+            document.getElementById('shareWhatsapp').href =
+                `https://wa.me/?text=${shareText}%20${shareUrl}`;
+            document.getElementById('shareTwitter').href =
+                `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+            document.getElementById('shareFacebook').href =
+                `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+        }
+
+        function showError() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+        }
+
+        loadArticle();
+    </script>
+</body>
+</html>

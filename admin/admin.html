@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo — Corrigindo a Rota</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <style>
+        /* Personalização visual do painel de login */
+        body {
+            background-color: #0a0705 !important;
+        }
+
+        /* Tela de login */
+        [class*="Login"] {
+            background: linear-gradient(135deg, #0a0705 0%, #1a1410 50%, #0a0705 100%) !important;
+        }
+
+        [class*="Login"] h1,
+        [class*="Login"] p {
+            color: #d4c8b5 !important;
+        }
+
+        [class*="Login"] button {
+            background: linear-gradient(135deg, #8a6d22, #b8922e) !important;
+            color: #0a0705 !important;
+            font-family: 'Georgia', serif !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase !important;
+            border: 1px solid #b8922e !important;
+            border-radius: 2px !important;
+        }
+
+        [class*="Login"] button:hover {
+            background: linear-gradient(135deg, #b8922e, #d4a843) !important;
+            box-shadow: 0 0 20px rgba(212, 168, 67, 0.3) !important;
+        }
+
+        [class*="Login"] input {
+            background: rgba(30, 24, 18, 0.8) !important;
+            border: 1px solid rgba(184, 146, 46, 0.2) !important;
+            color: #d4c8b5 !important;
+            border-radius: 2px !important;
+        }
+
+        [class*="Login"] input:focus {
+            border-color: #b8922e !important;
+            box-shadow: 0 0 10px rgba(184, 146, 46, 0.15) !important;
+        }
+
+        [class*="Login"] label {
+            color: #8a6d22 !important;
+            font-family: 'Georgia', serif !important;
+            letter-spacing: 1px !important;
+        }
+
+        /* Logo personalizado no login */
+        [class*="Login"] [class*="logo"] {
+            color: #d4a843 !important;
+        }
+
+        /* Loading screen */
+        .cms-loading {
+            position: fixed;
+            inset: 0;
+            background: #0a0705;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            font-family: 'Georgia', serif;
+            color: #8a6d22;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .cms-loading .cross {
+            font-size: 2rem;
+            color: #b8922e;
+            margin-bottom: 1.5rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cms-loading" id="cmsLoading">
+        <div class="cross">✝</div>
+        <span>Corrigindo a Rota</span>
+        <span style="font-size: 0.65rem; margin-top: 0.5rem; opacity: 0.5;">Painel Administrativo</span>
+    </div>
+
+    <script>
+        // Remove loading screen quando o CMS carregar
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('cmsLoading');
+                if (loader) loader.style.display = 'none';
+            }, 2000);
+        });
+
+        // Configuração do CMS via JavaScript (complementa o config.yml)
+        CMS.init({
+            config: {
+                backend: {
+                    name: "git-gateway",
+                    branch: "main",
+                    commit_messages: {
+                        create: "✝ Novo artigo: {{slug}}",
+                        update: "✏️ Atualizado: {{slug}}",
+                        delete: "🗑️ Removido: {{slug}}",
+                        uploadMedia: "📷 Nova imagem: {{path}}",
+                        deleteMedia: "🗑️ Imagem removida: {{path}}",
+                        openAuthoring: "📝 {{message}}"
+                    }
+                },
+                local_backend: true,
+                media_folder: "static/img",
+                public_folder: "/static/img",
+                site_url: "https://www.corrigindoarota.com.br",
+                display_url: "https://www.corrigindoarota.com.br",
+                logo_url: "/static/img/logo.png",
+                locale: "pt",
+                slug: {
+                    encoding: "ascii",
+                    clean_accents: true,
+                    sanitize_replacement: "-"
+                },
+                collections: [
+                    {
+                        name: "artigos",
+                        label: "📜 Artigos e Estudos",
+                        label_singular: "Artigo",
+                        folder: "content/artigos",
+                        create: true,
+                        slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+                        sortable_fields: ["date", "title", "category"],
+                        view_filters: [
+                            { label: "Publicados", field: "status", pattern: "publicado" },
+                            { label: "Rascunhos", field: "status", pattern: "rascunho" }
+                        ],
+                        fields: [
+                            {
+                                label: "Status",
+                                name: "status",
+                                widget: "select",
+                                options: [
+                                    { label: "📝 Rascunho", value: "rascunho" },
+                                    { label: "✅ Publicado", value: "publicado" }
+                                ],
+                                default: "rascunho",
+                                hint: "Rascunho = não aparece no site. Publicado = aparece no site."
+                            },
+                            {
+                                label: "Título do Artigo",
+                                name: "title",
+                                widget: "string",
+                                hint: "Ex: A Teologia da Prosperidade à Luz dos Originais Gregos"
+                            },
+                            {
+                                label: "Resumo (aparece na página inicial e no WhatsApp)",
+                                name: "description",
+                                widget: "text",
+                                hint: "Máximo 160 caracteres. É o texto que aparece quando alguém compartilha no WhatsApp."
+                            },
+                            {
+                                label: "Categoria",
+                                name: "category",
+                                widget: "select",
+                                options: [
+                                    { label: "📖 Heresias Históricas", value: "heresias" },
+                                    { label: "🔍 Teologia Bíblica", value: "teologia" },
+                                    { label: "📜 Manuscritos & Traduções", value: "manuscritos" },
+                                    { label: "⚔️ Falsos Mestres", value: "falsos-mestres" },
+                                    { label: "📕 Antigo & Novo Testamento", value: "testamento" },
+                                    { label: "🕯️ Vida Cristã Autêntica", value: "vida-crista" },
+                                    { label: "⚠️ Alertas & Denúncias", value: "alertas" },
+                                    { label: "👤 Pais da Igreja", value: "pais-igreja" },
+                                    { label: "🛡️ Apologética", value: "apologetica" }
+                                ],
+                                hint: "Selecione o tema principal do artigo."
+                            },
+                            {
+                                label: "Data de Publicação",
+                                name: "date",
+                                widget: "datetime",
+                                date_format: "DD/MM/YYYY",
+                                time_format: "HH:mm",
+                                format: "YYYY-MM-DDTHH:mm:ss",
+                                hint: "Data que aparecerá no artigo."
+                            },
+                            {
+                                label: "Tempo de Leitura (minutos)",
+                                name: "reading_time",
+                                widget: "number",
+                                value_type: "int",
+                                min: 1,
+                                max: 60,
+                                default: 10,
+                                hint: "Ex: 12 (para 12 minutos de leitura)"
+                            },
+                            {
+                                label: "Imagem de Capa",
+                                name: "featured_image",
+                                widget: "image",
+                                required: false,
+                                hint: "Imagem que aparece no topo do artigo e nas redes sociais. Tamanho ideal: 1200x630px.",
+                                media_library: {
+                                    config: {
+                                        max_file_size: 2000000
+                                    }
+                                }
+                            },
+                            {
+                                label: "Texto alternativo da imagem (para acessibilidade e SEO)",
+                                name: "image_alt",
+                                widget: "string",
+                                required: false,
+                                hint: "Descreva a imagem. Ex: Manuscrito antigo sobre mesa de madeira"
+                            },
+                            {
+                                label: "Versículo em Destaque (aparece no topo do artigo)",
+                                name: "featured_verse",
+                                widget: "object",
+                                required: false,
+                                fields: [
+                                    {
+                                        label: "Texto do Versículo",
+                                        name: "text",
+                                        widget: "text",
+                                        hint: 'Ex: "E conhecereis a verdade, e a verdade vos libertará."'
+                                    },
+                                    {
+                                        label: "Referência",
+                                        name: "reference",
+                                        widget: "string",
+                                        hint: "Ex: João 8:32"
+                                    }
+                                ]
+                            },
+                            {
+                                label: "Corpo do Artigo",
+                                name: "body",
+                                widget: "markdown",
+                                hint: "Escreva seu artigo aqui. Use os botões da barra de ferramentas para formatar.",
+                                buttons: ["bold", "italic", "code", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"],
+                                editor_components: ["image", "code-block"],
+                                modes: ["rich_text", "raw"]
+                            },
+                            {
+                                label: "Tags (palavras-chave para busca)",
+                                name: "tags",
+                                widget: "list",
+                                required: false,
+                                hint: "Pressione Enter após cada tag. Ex: prosperidade, heresia, grego"
+                            },
+                            {
+                                label: "Autor",
+                                name: "author",
+                                widget: "string",
+                                default: "Corrigindo a Rota",
+                                hint: "Seu nome ou pseudônimo."
+                            }
+                        ]
+                    },
+                    {
+                        name: "paginas",
+                        label: "📄 Páginas Fixas",
+                        label_singular: "Página",
+                        files: [
+                            {
+                                label: "Sobre / Missão",
+                                name: "sobre",
+                                file: "content/paginas/sobre.md",
+                                fields: [
+                                    { label: "Título", name: "title", widget: "string" },
+                                    { label: "Conteúdo", name: "body", widget: "markdown" }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
