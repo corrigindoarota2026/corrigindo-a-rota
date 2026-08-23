@@ -5,47 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Painel Administrativo — Corrigindo a Rota</title>
   <meta name="robots" content="noindex, nofollow">
-
-  <!-- Netlify Identity Widget (Obrigatório para o login) -->
+  <!-- Widget de Login do Netlify -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <!-- Decap CMS Script (O editor propriamente dito) -->
+  <!-- Editor Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-  <script>
-    // Configuração do Painel
-    CMS.init({
-      config: {
-        backend: {
-          name: "git-gateway",
-          branch: "main",
-        },
-        media_folder: "static/img",
-        public_folder: "/static/img",
-        locale: "pt",
-        collections: [
-          {
-            name: "artigos",
-            label: "📜 Artigos e Estudos",
-            label_singular: "Artigo",
-            folder: "content/artigos",
-            create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            fields: [
-              { label: "Status", name: "status", widget: "select", options: ["rascunho", "publicado"], default: "rascunho" },
-              { label: "Título do Artigo", name: "title", widget: "string" },
-              { label: "Resumo (WhatsApp)", name: "description", widget: "text" },
-              { label: "Categoria", name: "category", widget: "select", options: ["heresias", "teologia", "manuscritos", "falsos-mestres", "testamento", "vida-crista", "alertas", "pais-igreja", "apologetica"] },
-              { label: "Data", name: "date", widget: "datetime" },
-              { label: "Tempo de Leitura", name: "reading_time", widget: "number", default: 10 },
-              { label: "Imagem de Capa", name: "featured_image", widget: "image", required: false },
-              { label: "Corpo do Artigo", name: "body", widget: "markdown" }
-            ]
-          }
-        ]
-      }
-    });
-  </script>
 </body>
 </html>
