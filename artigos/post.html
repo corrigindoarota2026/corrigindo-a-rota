@@ -109,7 +109,7 @@
             font-style: normal;
         }
 
-        /* Conteúdo do artigo (Markdown renderizado) */
+        /* --- ESTILOS DE CORPO DO ARTIGO --- */
         .article-body h2 {
             font-family: 'Cinzel', serif;
             color: var(--gold); font-size: 1.5rem;
@@ -142,37 +142,55 @@
             transition: all 0.3s;
         }
         .article-body a:hover { color: var(--gold-bright); }
-        .article-body ul, .article-body ol {
-            padding-left: 1.5rem; margin-bottom: 1.5rem;
-        }
-        .article-body li { margin-bottom: 0.5rem; color: var(--text-muted); }
-        .article-body li::marker { color: var(--gold-dim); }
-        .article-body img {
-            max-width: 100%; height: auto;
-            margin: 2rem 0;
-            border: 1px solid rgba(184,146,46,0.1);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        }
-        .article-body code {
-            background: rgba(184,146,46,0.1);
-            color: var(--gold-bright);
-            padding: 2px 6px;
-            font-size: 0.9em;
+
+        /* --- SEUS ESTILOS PERSONALIZADOS SOLICITADOS --- */
+
+        /* 1. CAIXA ELEGANTE (caixa<...>) */
+        .custom-box {
+            background: linear-gradient(145deg, rgba(30, 24, 18, 0.9) 0%, rgba(18, 14, 10, 0.95) 100%);
+            border: 1px solid rgba(212, 168, 67, 0.25);
             border-radius: 2px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            box-shadow: inset 0 0 20px rgba(212, 168, 67, 0.04), 0 10px 30px rgba(0, 0, 0, 0.7);
+            position: relative;
         }
-        .article-body pre {
-            background: var(--bg-cave);
-            border: 1px solid rgba(184,146,46,0.1);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            overflow-x: auto;
+        .custom-box::before {
+            content: '◆';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg);
+            color: var(--gold);
+            padding: 0 12px;
+            font-size: 0.75rem;
         }
-        .article-body hr {
-            border: none;
+
+        /* 2. DESTAQUE ENTRE DUAS RETAS DOURADAS (destaque<...>) */
+        .custom-highlight {
+            position: relative;
+            margin: 3.5rem 0;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-family: 'IM Fell English', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--gold-bright);
+            line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+        .custom-highlight::before,
+        .custom-highlight::after {
+            content: '';
+            position: absolute;
+            left: 5%;
+            right: 5%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-            margin: 3rem 0;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
+        .custom-highlight::before { top: 0; }
+        .custom-highlight::after { bottom: 0; }
 
         .article-tags {
             display: flex; flex-wrap: wrap; gap: 0.5rem;
@@ -278,10 +296,7 @@
             const params = new URLSearchParams(window.location.search);
             const slug = params.get('slug');
 
-            if (!slug) {
-                showError();
-                return;
-            }
+            if (!slug) { showError(); return; }
 
             try {
                 const GITHUB_USER = 'corrigindoarota2026';
@@ -326,18 +341,17 @@
             document.getElementById('articleTitle').textContent = data.title;
             document.getElementById('articleIntro').textContent = data.description;
 
-            // Versículo em destaque
-            if (data.featured_verse && data.featured_verse.text) {
-                document.getElementById('featuredVerse').innerHTML = `
-                    <div class="featured-verse">
-                        <blockquote>${data.featured_verse.text}</blockquote>
-                        <cite>— ${data.featured_verse.reference} —</cite>
-                    </div>
-                `;
-            }
+            // Converter Markdown principal
+            let htmlContent = marked.parse(body);
 
-            // Corpo do artigo
-            document.getElementById('articleBody').innerHTML = marked.parse(body);
+            // PROCESSAR SHORTCODES PERSONALIZADOS (caixa<> e destaque<>)
+            htmlContent = htmlContent
+                .replace(/(?:<p>)?caixa&lt;([\s\S]*?)&gt;(?:<\/p>)?/gi, '<div class="custom-box">$1</div>')
+                .replace(/(?:<p>)?caixa<([\s\S]*?)>(?:<\/p>)?/gi, '<div class="custom-box">$1</div>')
+                .replace(/(?:<p>)?destaque&lt;([\s\S]*?)&gt;(?:<\/p>)?/gi, '<div class="custom-highlight">$1</div>')
+                .replace(/(?:<p>)?destaque<([\s\S]*?)>(?:<\/p>)?/gi, '<div class="custom-highlight">$1</div>');
+
+            document.getElementById('articleBody').innerHTML = htmlContent;
 
             // Tags
             if (data.tags && data.tags.length > 0) {
@@ -345,7 +359,7 @@
                     data.tags.map(t => `<span class="tag">${t}</span>`).join('');
             }
 
-            // SEO dinâmico
+            // SEO Dinâmico
             const url = window.location.href;
             document.title = `${data.title} — Corrigindo a Rota`;
             document.querySelector('meta[name="description"]').content = data.description;
@@ -355,35 +369,13 @@
             if (data.featured_image) {
                 document.querySelector('meta[property="og:image"]').content = data.featured_image;
             }
-            document.querySelector('link[rel="canonical"]').href = url;
 
-            // Schema.org Article
-            const schema = {
-                "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": data.title,
-                "description": data.description,
-                "datePublished": data.date,
-                "author": { "@type": "Organization", "name": data.author || "Corrigindo a Rota" },
-                "publisher": { "@type": "Organization", "name": "Corrigindo a Rota" },
-                "mainEntityOfPage": url,
-                "articleSection": catLabel,
-                "inLanguage": "pt-BR"
-            };
-            const script = document.createElement('script');
-            script.type = 'application/ld+json';
-            script.textContent = JSON.stringify(schema);
-            document.head.appendChild(script);
-
-            // Botões de compartilhar
+            // Compartilhar
             const shareText = encodeURIComponent(`${data.title} — Corrigindo a Rota`);
             const shareUrl = encodeURIComponent(url);
-            document.getElementById('shareWhatsapp').href =
-                `https://wa.me/?text=${shareText}%20${shareUrl}`;
-            document.getElementById('shareTwitter').href =
-                `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
-            document.getElementById('shareFacebook').href =
-                `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+            document.getElementById('shareWhatsapp').href = `https://wa.me/?text=${shareText}%20${shareUrl}`;
+            document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+            document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
         }
 
         function showError() {
