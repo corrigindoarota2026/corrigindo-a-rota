@@ -3143,6 +3143,17 @@
             ⚠️ Este site funciona melhor com JavaScript ativado. Algumas funcionalidades podem estar limitadas.
         </div>
     </noscript>
-
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+   
 </body>
 </html>
