@@ -1,3159 +1,419 @@
 <!DOCTYPE html>
-<html lang="pt-BR" dir="ltr" prefix="og: https://ogp.me/ns#">
+<html lang="pt-BR">
 <head>
-   <!-- ============================================
-         RASTREADOR NETLIFY
-         ============================================ -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <!-- ============================================
-         METADADOS ESSENCIAIS & CHARSET
-         ============================================ -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta http-equiv="Content-Language" content="pt-BR">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrigindo a Rota — Educação Bíblica & Investigação da Verdade</title>
+    <meta name="description" content="Estudos bíblicos aprofundados, denúncia de heresias e investigação das Escrituras nos idiomas originais.">
+    <link rel="canonical" href="https://corrigindoarota.netlify.app/">
 
-    <!-- ============================================
-         TÍTULO SEO OTIMIZADO (50-60 caracteres)
-         ============================================ -->
-    <title>Corrigindo a Rota — Educação Bíblica, Verdade e Investigação das Escrituras</title>
+    <!-- 🔐 RASTREADOR NETLIFY IDENTITY (Mantido nos bastidores) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-    <!-- ============================================
-         META DESCRIPTION (150-160 caracteres)
-         ============================================ -->
-    <meta name="description" content="Educação bíblica aprofundada, denúncia de heresias e investigação das Escrituras Sagradas. Estudos nos originais hebraico e grego para quem busca a verdade.">
-
-    <!-- ============================================
-         META KEYWORDS (relevância secundária, mas presente)
-         ============================================ -->
-    <meta name="keywords" content="educação bíblica, estudo bíblico, heresias, falsos mestres, teologia bíblica, apologética, Escrituras Sagradas, verdade bíblica, denúncia bíblica, sola scriptura, exegese, manuscritos bíblicos, corrigindo a rota">
-
-    <!-- ============================================
-         ROBOTS & INDEXAÇÃO
-         ============================================ -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow">
-    <meta name="bingbot" content="index, follow">
-    <meta name="revisit-after" content="3 days">
-    <meta name="rating" content="general">
-    <meta name="distribution" content="global">
-
-    <!-- ============================================
-         CANONICAL URL (evita conteúdo duplicado)
-         ============================================ -->
-    <link rel="canonical" href="https://www.corrigindoarota.com.br/">
-
-    <!-- ============================================
-         IDIOMAS ALTERNATIVOS (hreflang)
-         ============================================ -->
-    <link rel="alternate" hreflang="pt-BR" href="https://www.corrigindoarota.com.br/">
-    <link rel="alternate" hreflang="x-default" href="https://www.corrigindoarota.com.br/">
-
-    <!-- ============================================
-         OPEN GRAPH (Facebook, WhatsApp, Telegram, LinkedIn)
-         ============================================ -->
+    <!-- OPEN GRAPH (Prévia para WhatsApp) -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Corrigindo a Rota">
-    <meta property="og:title" content="Corrigindo a Rota — Educação Bíblica & Investigação da Verdade">
-    <meta property="og:description" content="Estudos bíblicos aprofundados, denúncia de heresias e investigação das Escrituras nos idiomas originais. Para quem não se contenta com respostas superficiais.">
-    <meta property="og:url" content="https://www.corrigindoarota.com.br/">
-    <meta property="og:image" content="https://www.corrigindoarota.com.br/assets/images/og-cover.jpg">
-    <meta property="og:image:secure_url" content="https://www.corrigindoarota.com.br/assets/images/og-cover.jpg">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Corrigindo a Rota — Cruz dourada sobre fundo escuro com textura de pedra antiga e pergaminho">
-    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Corrigindo a Rota — Educação Bíblica">
+    <meta property="og:description" content="Investigação das Escrituras e denúncia de heresias.">
+    <meta property="og:url" content="https://corrigindoarota.netlify.app/">
 
-    <!-- ============================================
-         TWITTER CARD
-         ============================================ -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@corrigindoarota">
-    <meta name="twitter:creator" content="@corrigindoarota">
-    <meta name="twitter:title" content="Corrigindo a Rota — Educação Bíblica & Investigação da Verdade">
-    <meta name="twitter:description" content="Estudos bíblicos aprofundados, denúncia de heresias e investigação das Escrituras nos idiomas originais.">
-    <meta name="twitter:image" content="https://www.corrigindoarota.com.br/assets/images/og-cover.jpg">
-    <meta name="twitter:image:alt" content="Corrigindo a Rota — Educação Bíblica e Verdade">
-
-    <!-- ============================================
-         APPLE / MOBILE META TAGS
-         ============================================ -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Corrigindo a Rota">
-    <meta name="application-name" content="Corrigindo a Rota">
-    <meta name="msapplication-TileColor" content="#0a0705">
-    <meta name="msapplication-config" content="/browserconfig.xml">
-    <meta name="theme-color" content="#0a0705" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#1a1410" media="(prefers-color-scheme: light)">
-    <meta name="format-detection" content="telephone=no">
-
-    <!-- ============================================
-         FAVICONS (todos os tamanhos necessários)
-         ============================================ -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
-    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
-    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='6' y='0' width='4' height='16' fill='%23b8922e' rx='1'/%3E%3Crect x='2' y='4' width='12' height='3' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%230a0705'/%3E%3Crect x='75' y='20' width='30' height='140' fill='%23b8922e' rx='3'/%3E%3Crect x='30' y='55' width='120' height='25' fill='%23b8922e' rx='3'/%3E%3C/svg%3E">
-
-    <!-- ============================================
-         PRECONNECT & DNS PREFETCH (Performance)
-         ============================================ -->
+    <!-- FONTS GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 
-    <!-- ============================================
-         GOOGLE FONTS (com display=swap para performance)
-         ============================================ -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Uncial+Antiqua&display=swap" rel="stylesheet">
-
-    <!-- ============================================
-         JSON-LD STRUCTURED DATA (Schema.org)
-         ============================================ -->
-    <!-- Organization Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Corrigindo a Rota",
-        "alternateName": "Corrigindo a Rota — Educação Bíblica",
-        "url": "https://www.corrigindoarota.com.br",
-        "logo": "https://www.corrigindoarota.com.br/assets/images/logo.png",
-        "description": "Ministério de educação bíblica dedicado ao estudo aprofundado das Escrituras, denúncia de heresias e investigação da verdade nos idiomas originais.",
-        "foundingDate": "2024",
-        "sameAs": [
-            "https://www.youtube.com/@corrigindoarota",
-            "https://www.instagram.com/corrigindoarota",
-            "https://twitter.com/corrigindoarota"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "customer service",
-            "email": "contato@corrigindoarota.com.br",
-            "availableLanguage": "Portuguese"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "BR"
-        }
-    }
-    </script>
-
-    <!-- WebSite Schema (SearchAction para Google) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Corrigindo a Rota",
-        "alternateName": "Corrigindo a Rota — Educação Bíblica & Verdade",
-        "url": "https://www.corrigindoarota.com.br",
-        "description": "Educação bíblica aprofundada, denúncia de heresias e investigação das Escrituras Sagradas.",
-        "inLanguage": "pt-BR",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Corrigindo a Rota"
-        },
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://www.corrigindoarota.com.br/busca?q={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-
-    <!-- BreadcrumbList Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Início",
-                "item": "https://www.corrigindoarota.com.br/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Temas",
-                "item": "https://www.corrigindoarota.com.br/#temas"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Artigos",
-                "item": "https://www.corrigindoarota.com.br/#artigos"
-            }
-        ]
-    }
-    </script>
-
-    <!-- Article Schema (para os artigos em destaque) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Artigos em Destaque — Corrigindo a Rota",
-        "description": "Estudos bíblicos aprofundados e análises teológicas.",
-        "numberOfItems": 3,
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "item": {
-                    "@type": "Article",
-                    "headline": "A Teologia da Prosperidade à Luz dos Originais Gregos",
-                    "description": "Análise textual de Malaquias 3:10 e João 10:10 nos manuscritos originais revela algo muito diferente do que pregam os púlpitos modernos.",
-                    "datePublished": "2024-12-15",
-                    "author": {
-                        "@type": "Organization",
-                        "name": "Corrigindo a Rota"
-                    },
-                    "publisher": {
-                        "@type": "Organization",
-                        "name": "Corrigindo a Rota",
-                        "logo": {
-                            "@type": "ImageObject",
-                            "url": "https://www.corrigindoarota.com.br/assets/images/logo.png"
-                        }
-                    },
-                    "mainEntityOfPage": "https://www.corrigindoarota.com.br/artigos/teologia-prosperidade-originais-gregos",
-                    "image": "https://www.corrigindoarota.com.br/assets/images/artigo-01.jpg",
-                    "articleSection": "Heresias",
-                    "inLanguage": "pt-BR"
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "item": {
-                    "@type": "Article",
-                    "headline": "Quando a Tradição Substituiu a Escritura: Um Alerta Necessário",
-                    "description": "Como práticas sem qualquer base bíblica se tornaram sagradas dentro de denominações inteiras.",
-                    "datePublished": "2024-12-08",
-                    "author": {
-                        "@type": "Organization",
-                        "name": "Corrigindo a Rota"
-                    },
-                    "publisher": {
-                        "@type": "Organization",
-                        "name": "Corrigindo a Rota",
-                        "logo": {
-                            "@type": "ImageObject",
-                            "url": "https://www.corrigindoarota.com.br/assets/images/logo.png"
-                        }
-                    },
-                    "mainEntityOfPage": "https://www.corrigindoarota.com.br/artigos/tradicao-substituiu-escritura",
-                    "image": "https://www.corrigindoarota.com.br/assets/images/artigo-02.jpg",
-                    "articleSection": "Denúncia",
-                    "inLanguage": "pt-BR"
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "item": {
-                    "@type": "Article",
-                    "headline": "Os Sete Selos de Apocalipse: O que Realmente Significam?",
-                    "description": "Exegese cuidadosa de Apocalipse 6-8, considerando o contexto do primeiro século.",
-                    "datePublished": "2024-12-01",
-                    "author": {
-                        "@type": "Organization",
-                        "name": "Corrigindo a Rota"
-                    },
-                    "publisher": {
-                        "@type": "Organization",
-                        "name": "Corrigindo a Rota",
-                        "logo": {
-                            "@type": "ImageObject",
-                            "url": "https://www.corrigindoarota.com.br/assets/images/logo.png"
-                        }
-                    },
-                    "mainEntityOfPage": "https://www.corrigindoarota.com.br/artigos/sete-selos-apocalipse",
-                    "image": "https://www.corrigindoarota.com.br/assets/images/artigo-03.jpg",
-                    "articleSection": "Estudo Bíblico",
-                    "inLanguage": "pt-BR"
-                }
-            }
-        ]
-    }
-    </script>
-
-    <!-- FAQ Schema (para rich snippets no Google) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "O que é o projeto Corrigindo a Rota?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Corrigindo a Rota é um ministério de educação bíblica dedicado ao estudo aprofundado das Escrituras Sagradas, denúncia de heresias e investigação da verdade através da análise nos idiomas originais (hebraico e grego)."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quais temas são abordados no site?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Abordamos temas como heresias históricas, teologia bíblica, manuscritos e traduções, falsos mestres, análise do Antigo e Novo Testamento, vida cristã autêntica, alertas e denúncias, pais da igreja e apologética cristã."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Como posso receber atualizações do Corrigindo a Rota?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Você pode se inscrever gratuitamente em nossa newsletter inserindo seu e-mail no formulário disponível no site. Enviamos novos artigos, estudos e alertas diretamente para sua caixa de entrada, sem spam."
-                }
-            }
-        ]
-    }
-    </script>
-
-    <!-- ============================================
-         SITEMAP REFERENCE
-         ============================================ -->
-    <!-- Nota: criar arquivo sitemap.xml na raiz do site -->
-
-    <!-- ============================================
-         RSS FEED
-         ============================================ -->
-    <link rel="alternate" type="application/rss+xml" title="Corrigindo a Rota — Feed RSS" href="https://www.corrigindoarota.com.br/feed.xml">
-
-    <!-- ============================================
-         SECURITY HEADERS (via meta quando possível)
-         ============================================ -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-
-    <!-- ============================================
-         CSS PRINCIPAL
-         ============================================ -->
     <style>
-        /* ============================================
-           CSS CUSTOM PROPERTIES
-           ============================================ */
         :root {
-            --color-bg-deepest: #0a0705;
-            --color-bg-dark: #110e0a;
-            --color-bg-cave: #1a1410;
-            --color-bg-stone: #231c15;
-            --color-bg-warm: #2a2118;
-            --color-bg-card: #1e1812;
-            --color-bg-card-hover: #2a2219;
-            --color-gold-bright: #d4a843;
-            --color-gold: #b8922e;
-            --color-gold-dark: #8a6d22;
-            --color-gold-dim: #6b5519;
-            --color-gold-glow: rgba(212,168,67,0.15);
-            --color-gold-glow-strong: rgba(212,168,67,0.3);
-            --color-text-primary: #d4c8b5;
-            --color-text-secondary: #a89880;
-            --color-text-muted: #7a6b58;
-            --color-text-faint: #5a4d3e;
-            --color-accent-red: #8b3a3a;
-            --color-parchment: #c4b396;
-            --font-display: 'Cinzel Decorative', serif;
-            --font-heading: 'Cinzel', serif;
-            --font-body: 'Crimson Text', serif;
-            --font-accent: 'IM Fell English', serif;
-            --font-accent-sc: 'IM Fell English SC', serif;
-            --font-uncial: 'Uncial Antiqua', cursive;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.6);
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.7);
-            --shadow-xl: 0 16px 48px rgba(0,0,0,0.8);
-            --shadow-glow-gold: 0 0 20px rgba(212,168,67,0.15);
-            --shadow-text: 0 2px 4px rgba(0,0,0,0.8);
-            --shadow-text-glow: 0 0 10px rgba(212,168,67,0.3);
-            --transition-smooth: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
-            --transition-slow: all 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
-            --focus-outline: 2px solid var(--color-gold);
+            --bg: #070503;
+            --gold: #c9a84c;
+            --gold-bright: #e8c97a;
+            --gold-dim: #5e4a19;
+            --text: #d8ccb8;
+            --text-muted: #7e705c;
+            --text-faint: #42382b;
         }
 
-        /* ============================================
-           RESET & BASE
-           ============================================ */
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-
-        html {
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: var(--color-gold-dark) var(--color-bg-dark);
-        }
-
-        html::-webkit-scrollbar{width:8px}
-        html::-webkit-scrollbar-track{background:var(--color-bg-dark)}
-        html::-webkit-scrollbar-thumb{background:var(--color-gold-dark);border-radius:4px}
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
         body {
-            font-family: var(--font-body);
-            font-size: 18px;
+            background-color: var(--bg);
+            background-image: radial-gradient(ellipse at 50% 0%, rgba(35, 26, 15, 0.4) 0%, transparent 70%);
+            color: var(--text);
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 19px;
             line-height: 1.8;
-            color: var(--color-text-primary);
-            background-color: var(--color-bg-deepest);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* ============================================
-           ACCESSIBILITY — Focus Visible
-           ============================================ */
-        :focus-visible {
-            outline: var(--focus-outline);
-            outline-offset: 3px;
-        }
-
-        :focus:not(:focus-visible) {
-            outline: none;
-        }
-
-        /* Skip to Content (Acessibilidade) */
-        .skip-to-content {
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--color-gold);
-            color: var(--color-bg-deepest);
-            padding: 12px 24px;
-            font-family: var(--font-heading);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-decoration: none;
-            z-index: 10001;
-            transition: top 0.3s ease;
-            border-radius: 0 0 4px 4px;
-        }
-
-        .skip-to-content:focus {
-            top: 0;
-        }
-
-        /* Reduced motion preference */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            html { scroll-behavior: auto; }
-        }
-
-        /* ============================================
-           TEXTURE OVERLAYS
-           ============================================ */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 20% 0%,rgba(212,168,67,0.03) 0%,transparent 50%),
-                radial-gradient(ellipse at 80% 100%,rgba(139,58,58,0.02) 0%,transparent 50%),
-                radial-gradient(ellipse at 50% 50%,rgba(26,20,16,0.5) 0%,transparent 100%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image:
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 2;
-            opacity: 0.5;
-        }
-
-        .page-wrapper { position: relative; z-index: 3; }
-
-        /* ============================================
-           TORCH LIGHTS
-           ============================================ */
-        .torch-light {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0;
-        }
-
-        .torch-left {
-            top: 10%;left: -200px;
-            background: radial-gradient(circle,rgba(212,168,67,0.04) 0%,transparent 70%);
-            animation: torchFlicker 4s ease-in-out infinite alternate;
-        }
-
-        .torch-right {
-            top: 30%;right: -200px;
-            background: radial-gradient(circle,rgba(180,120,40,0.03) 0%,transparent 70%);
-            animation: torchFlicker 5s ease-in-out infinite alternate-reverse;
-        }
-
-        @keyframes torchFlicker {
-            0%,100%{opacity:.5;transform:scale(1)}
-            25%{opacity:.7;transform:scale(1.05)}
-            50%{opacity:.4;transform:scale(.95)}
-            75%{opacity:.8;transform:scale(1.02)}
-        }
-
-        /* ============================================
-           NAVIGATION
-           ============================================ */
-        .nav-bar {
-            position: fixed;
-            top: 0;left: 0;right: 0;
-            z-index: 1000;
-            background: linear-gradient(180deg,rgba(10,7,5,0.97) 0%,rgba(10,7,5,0.92) 70%,rgba(10,7,5,0.85) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(212,168,67,0.1);
-            transition: var(--transition-smooth);
-        }
-
-        .nav-bar.scrolled {
-            box-shadow: 0 4px 30px rgba(0,0,0,0.8),0 1px 0 rgba(212,168,67,0.08);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 72px;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--color-gold-bright);
-        }
-
-        .nav-brand-icon {
-            width: 40px;height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-brand-icon svg {
-            filter: drop-shadow(0 0 6px rgba(212,168,67,0.3));
-        }
-
-        .nav-brand-text {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-shadow: var(--shadow-text),var(--shadow-text-glow);
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-family: var(--font-accent-sc);
-            font-size: 0.85rem;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            position: relative;
-            padding: 4px 0;
-            transition: var(--transition-smooth);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;left: 50%;
-            width: 0;height: 1px;
-            background: var(--color-gold);
-            transition: var(--transition-smooth);
-            transform: translateX(-50%);
-        }
-
-        .nav-links a:hover,
-        .nav-links a[aria-current="page"] {
-            color: var(--color-gold-bright);
-            text-shadow: var(--shadow-text-glow);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a[aria-current="page"]::after {
-            width: 100%;
-        }
-
-        .nav-hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 8px;
-            background: none;
-            border: none;
-        }
-
-        .nav-hamburger span {
-            display: block;
-            width: 24px;height: 2px;
-            background: var(--color-gold);
-            transition: var(--transition-smooth);
-            border-radius: 1px;
-        }
-
-        .nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-        .nav-hamburger.active span:nth-child(2){opacity:0}
-        .nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 72px;
-            left: 0;right: 0;bottom: 0;
-            background: rgba(10,7,5,0.98);
-            z-index: 999;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .mobile-menu.active { display: flex; }
-
-        .mobile-menu a {
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 0.5rem 2rem;
-            transition: var(--transition-smooth);
-        }
-
-        .mobile-menu a:hover { color: var(--color-gold-bright); }
-
-        /* ============================================
-           HERO SECTION
-           ============================================ */
-        .hero {
-            position: relative;
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            background:
-                radial-gradient(ellipse at 50% 30%,rgba(42,33,24,0.6) 0%,transparent 60%),
-                radial-gradient(ellipse at 50% 80%,rgba(10,7,5,1) 0%,transparent 50%),
-                linear-gradient(180deg,var(--color-bg-cave) 0%,var(--color-bg-deepest) 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 30% 20%,rgba(212,168,67,0.05) 0%,transparent 40%),
-                radial-gradient(ellipse at 70% 60%,rgba(139,58,58,0.03) 0%,transparent 40%);
-            animation: ambientShift 12s ease-in-out infinite alternate;
-        }
-
-        @keyframes ambientShift {
-            0%{opacity:.6}50%{opacity:1}100%{opacity:.7}
-        }
-
-        .hero-particles {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 2px;height: 2px;
-            background: var(--color-gold-dim);
-            border-radius: 50%;
-            opacity: 0;
-            animation: particleFloat linear infinite;
-        }
-
-        .particle:nth-child(1){left:10%;animation-duration:15s;animation-delay:0s}
-        .particle:nth-child(2){left:25%;animation-duration:18s;animation-delay:2s}
-        .particle:nth-child(3){left:40%;animation-duration:12s;animation-delay:4s}
-        .particle:nth-child(4){left:55%;animation-duration:20s;animation-delay:1s}
-        .particle:nth-child(5){left:70%;animation-duration:16s;animation-delay:3s}
-        .particle:nth-child(6){left:85%;animation-duration:14s;animation-delay:5s}
-        .particle:nth-child(7){left:15%;animation-duration:22s;animation-delay:6s;width:1px;height:1px}
-        .particle:nth-child(8){left:60%;animation-duration:19s;animation-delay:7s;width:3px;height:3px}
-        .particle:nth-child(9){left:35%;animation-duration:17s;animation-delay:8s}
-        .particle:nth-child(10){left:80%;animation-duration:13s;animation-delay:2.5s;width:1px;height:1px}
-        .particle:nth-child(11){left:48%;animation-duration:21s;animation-delay:4.5s}
-        .particle:nth-child(12){left:92%;animation-duration:16s;animation-delay:6.5s;width:1px;height:1px}
-
-        @keyframes particleFloat {
-            0%{transform:translateY(100vh);opacity:0}
-            10%{opacity:.4}
-            90%{opacity:.2}
-            100%{transform:translateY(-10vh);opacity:0}
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 5;
-            max-width: 900px;
-            padding: 2rem;
-        }
-
-        .hero-cross {
-            display: inline-block;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInDown 1.2s ease-out 0.3s forwards;
-        }
-
-        .hero-cross svg {
-            filter: drop-shadow(0 0 15px rgba(212,168,67,0.3)) drop-shadow(0 4px 8px rgba(0,0,0,0.5));
-        }
-
-        .hero-subtitle-top {
-            font-family: var(--font-accent-sc);
-            font-size: 0.85rem;
-            color: var(--color-gold);
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            text-shadow: var(--shadow-text);
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.6s forwards;
-        }
-
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem,6vw,4.5rem);
-            font-weight: 900;
-            color: var(--color-gold-bright);
-            line-height: 1.2;
-            letter-spacing: 4px;
-            text-shadow: 0 0 30px rgba(212,168,67,0.2),0 0 60px rgba(212,168,67,0.1),0 4px 8px rgba(0,0,0,0.8);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeInUp 1.2s ease-out 0.9s forwards;
-        }
-
-        .hero-divider {
-            width: 120px;height: 1px;
-            background: linear-gradient(90deg,transparent,var(--color-gold),transparent);
-            margin: 0 auto 1.5rem;
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 1.2s forwards;
-        }
-
-        .hero-divider::before {
-            content: '✦';
-            position: absolute;
-            top: 50%;left: 50%;
-            transform: translate(-50%,-50%);
-            color: var(--color-gold);
-            font-size: 0.7rem;
-            background: var(--color-bg-deepest);
-            padding: 0 8px;
-        }
-
-        .hero-description {
-            font-family: var(--font-accent);
-            font-size: 1.15rem;
-            color: var(--color-text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            font-style: italic;
-            line-height: 1.9;
-            text-shadow: var(--shadow-text);
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 1.4s forwards;
-        }
-
-        .hero-verse {
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            font-style: italic;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 1.6s forwards;
-        }
-
-        .hero-verse strong {
-            color: var(--color-gold-dark);
-            font-weight: 600;
-        }
-
-        .hero-cta-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 1.8s forwards;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-heading);
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 14px 32px;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg,var(--color-gold-dark) 0%,var(--color-gold) 50%,var(--color-gold-dark) 100%);
-            color: var(--color-bg-deepest);
-            border: 1px solid var(--color-gold);
-            box-shadow: var(--shadow-md),var(--shadow-glow-gold);
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg,var(--color-gold) 0%,var(--color-gold-bright) 50%,var(--color-gold) 100%);
-            box-shadow: var(--shadow-lg),0 0 30px rgba(212,168,67,0.3);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--color-gold);
-            border: 1px solid var(--color-gold-dim);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(212,168,67,0.05);
-            border-color: var(--color-gold);
-            box-shadow: var(--shadow-md),var(--shadow-glow-gold);
-            transform: translateY(-2px);
-        }
-
-        .hero-scroll-indicator {
-            position: absolute;
-            bottom: 2rem;left: 50%;
-            transform: translateX(-50%);
-            display: flex;
             flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* NAVEGAÇÃO ULTRACLEAN */
+        .nav {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 2.5s forwards;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
         }
-
-        .hero-scroll-indicator span {
-            font-family: var(--font-accent-sc);
-            font-size: 0.65rem;
-            color: var(--color-text-muted);
+        .nav-brand {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1rem;
+            color: var(--gold-bright);
+            text-decoration: none;
             letter-spacing: 3px;
-            text-transform: uppercase;
         }
-
-        .scroll-arrow {
-            width: 20px;height: 30px;
-            border: 1px solid var(--color-gold-dim);
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .scroll-arrow::after {
-            content: '';
-            position: absolute;
-            top: 6px;left: 50%;
-            transform: translateX(-50%);
-            width: 3px;height: 6px;
-            background: var(--color-gold-dim);
-            border-radius: 2px;
-            animation: scrollBounce 2s ease-in-out infinite;
-        }
-
-        @keyframes scrollBounce {
-            0%,100%{transform:translateX(-50%) translateY(0);opacity:1}
-            50%{transform:translateX(-50%) translateY(8px);opacity:.3}
-        }
-
-        /* ============================================
-           SECTION COMMON
-           ============================================ */
-        .section { position: relative; padding: 6rem 2rem; }
-        .section-container { max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-
-        .section-label {
-            font-family: var(--font-accent-sc);
+        .nav-link {
+            font-family: 'Cinzel', serif;
             font-size: 0.75rem;
-            color: var(--color-gold-dark);
-            letter-spacing: 5px;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        .nav-link:hover { color: var(--gold); }
+
+        /* HERO - SOLEMNE E DIRETO */
+        .hero {
+            text-align: center;
+            padding: 5rem 1.5rem 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-cross {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        .hero-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            color: var(--gold-bright);
+            letter-spacing: 4px;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(201, 168, 76, 0.15);
+        }
+        .hero-subtitle {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+            margin: 0 auto 4rem;
+        }
+
+        /* SEÇÃO DE ARTIGOS - ESTILO DOSSIÊ/EDITORIAL */
+        .articles-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem 6rem;
+            width: 100%;
+        }
+        .section-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: var(--gold-dim);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2.5rem;
             display: block;
         }
 
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.8rem,3.5vw,2.5rem);
-            font-weight: 700;
-            color: var(--color-gold-bright);
-            letter-spacing: 3px;
-            text-shadow: var(--shadow-text),var(--shadow-text-glow);
-            margin-bottom: 1rem;
+        .articles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
         }
 
-        .section-divider {
-            width: 80px;height: 1px;
-            background: linear-gradient(90deg,transparent,var(--color-gold-dark),transparent);
-            margin: 0 auto 1.5rem;
-            position: relative;
+        .article-item {
+            text-decoration: none;
+            color: inherit;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+            transition: all 0.3s;
+            display: block;
         }
+        .article-item:last-child { border-bottom: none; }
 
-        .section-divider::before {
-            content: '◆';
-            position: absolute;
-            top: 50%;left: 50%;
-            transform: translate(-50%,-50%);
-            color: var(--color-gold-dark);
-            font-size: 0.5rem;
-            background: var(--color-bg-deepest);
-            padding: 0 10px;
-        }
-
-        .section-subtitle {
-            font-family: var(--font-accent);
-            font-size: 1.05rem;
-            color: var(--color-text-muted);
-            font-style: italic;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Stone Separator */
-        .stone-separator {
-            height: 80px;
-            background: linear-gradient(180deg,var(--color-bg-deepest) 0%,var(--color-bg-stone) 30%,var(--color-bg-stone) 70%,var(--color-bg-deepest) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stone-separator::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                repeating-linear-gradient(90deg,transparent 0px,rgba(0,0,0,0.1) 2px,transparent 4px,transparent 80px),
-                repeating-linear-gradient(0deg,transparent 0px,rgba(0,0,0,0.05) 1px,transparent 2px,transparent 40px);
-        }
-
-        .stone-separator .crack {
-            position: absolute;
-            top: 50%;left: 0;
-            width: 100%;height: 1px;
-            background: linear-gradient(90deg,transparent 0%,rgba(0,0,0,0.3) 10%,transparent 15%,rgba(0,0,0,0.2) 25%,transparent 30%,rgba(0,0,0,0.4) 45%,rgba(0,0,0,0.2) 55%,transparent 60%,rgba(0,0,0,0.3) 75%,transparent 80%,rgba(0,0,0,0.2) 90%,transparent 100%);
-        }
-
-        /* ============================================
-           ABOUT SECTION
-           ============================================ */
-        .about-section {
-            background:
-                radial-gradient(ellipse at 30% 50%,rgba(42,33,24,0.4) 0%,transparent 60%),
-                linear-gradient(180deg,var(--color-bg-deepest) 0%,var(--color-bg-cave) 50%,var(--color-bg-deepest) 100%);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
-            color: var(--color-gold);
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-        }
-
-        .about-text p {
-            color: var(--color-text-secondary);
-            margin-bottom: 1.2rem;
-            line-height: 2;
-        }
-
-        .about-text p:first-of-type::first-letter {
-            font-family: var(--font-uncial);
-            font-size: 3rem;
-            float: left;
-            color: var(--color-gold);
-            line-height: 1;
-            margin-right: 8px;
-            margin-top: 4px;
-            text-shadow: var(--shadow-text-glow);
-        }
-
-        .about-pillars { display: grid; gap: 1.5rem; }
-
-        .pillar-card {
-            background: linear-gradient(135deg,rgba(30,24,18,0.8) 0%,rgba(42,33,24,0.6) 100%);
-            border: 1px solid rgba(212,168,67,0.08);
-            border-left: 3px solid var(--color-gold-dark);
-            padding: 1.5rem 1.5rem 1.5rem 1.8rem;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pillar-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg,rgba(212,168,67,0.03) 0%,transparent 30%);
-            transition: var(--transition-smooth);
-        }
-
-        .pillar-card:hover {
-            border-left-color: var(--color-gold);
-            box-shadow: var(--shadow-lg),var(--shadow-glow-gold);
+        .article-item:hover h3 {
+            color: var(--gold-bright);
             transform: translateX(4px);
         }
 
-        .pillar-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
-
-        .pillar-card h4 {
-            font-family: var(--font-heading);
-            font-size: 0.9rem;
-            color: var(--color-gold);
+        .article-meta {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            color: var(--gold-dim);
             letter-spacing: 2px;
             text-transform: uppercase;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .article-item h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            line-height: 1.4;
+            margin-bottom: 0.6rem;
+            transition: all 0.3s;
+        }
+
+        .article-item p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* BANNER DISCRETO DE INSCRICÃO */
+        .newsletter-minimal {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+            background: rgba(12, 9, 6, 0.5);
+        }
+        .newsletter-minimal h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--gold);
+            letter-spacing: 2px;
             margin-bottom: 0.5rem;
         }
-
-        .pillar-card p {
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            line-height: 1.7;
-        }
-
-        /* ============================================
-           TOPICS SECTION
-           ============================================ */
-        .topics-section {
-            background:
-                radial-gradient(ellipse at 70% 30%,rgba(42,33,24,0.3) 0%,transparent 50%),
-                linear-gradient(180deg,var(--color-bg-deepest) 0%,var(--color-bg-dark) 50%,var(--color-bg-deepest) 100%);
-        }
-
-        .topics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-            gap: 1.5rem;
-        }
-
-        .topic-card {
-            position: relative;
-            background: linear-gradient(145deg,var(--color-bg-card) 0%,rgba(26,20,16,0.9) 100%);
-            border: 1px solid rgba(212,168,67,0.06);
-            padding: 2rem 1.5rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            overflow: hidden;
-            text-decoration: none;
-            display: block;
-        }
-
-        .topic-card::before {
-            content: '';
-            position: absolute;
-            top: 0;left: 0;
-            width: 100%;height: 3px;
-            background: linear-gradient(90deg,transparent,var(--color-gold-dark),transparent);
-            opacity: 0;
-            transition: var(--transition-smooth);
-        }
-
-        .topic-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;right: 0;
-            width: 60px;height: 60px;
-            background: radial-gradient(circle at bottom right,rgba(212,168,67,0.04) 0%,transparent 70%);
-            transition: var(--transition-smooth);
-        }
-
-        .topic-card:hover {
-            border-color: rgba(212,168,67,0.15);
-            box-shadow: var(--shadow-lg),var(--shadow-glow-gold);
-            transform: translateY(-4px);
-            background: var(--color-bg-card-hover);
-        }
-
-        .topic-card:hover::before { opacity: 1; }
-        .topic-card:hover::after { width: 100px; height: 100px; }
-
-        .topic-icon-wrapper {
-            width: 50px;height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.2rem;
-        }
-
-        .topic-icon-wrapper svg {
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-            transition: var(--transition-smooth);
-        }
-
-        .topic-card:hover .topic-icon-wrapper svg {
-            filter: drop-shadow(0 0 8px rgba(212,168,67,0.3)) drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-            transform: scale(1.1);
-        }
-
-        .topic-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--color-gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-            transition: var(--transition-smooth);
-        }
-
-        .topic-card:hover h3 { color: var(--color-gold-bright); }
-
-        .topic-card p {
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .topic-count {
-            font-family: var(--font-accent-sc);
-            font-size: 0.7rem;
-            color: var(--color-text-faint);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .topic-count::before {
-            content: '';
-            display: block;
-            width: 12px;height: 1px;
-            background: var(--color-gold-dim);
-        }
-
-        /* ============================================
-           ARTICLES SECTION
-           ============================================ */
-        .articles-section {
-            background:
-                radial-gradient(ellipse at 20% 70%,rgba(42,33,24,0.3) 0%,transparent 50%),
-                linear-gradient(180deg,var(--color-bg-deepest) 0%,var(--color-bg-cave) 50%,var(--color-bg-deepest) 100%);
-        }
-
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill,minmax(340px,1fr));
-            gap: 2rem;
-        }
-
-        .article-card {
-            background: linear-gradient(160deg,var(--color-bg-card) 0%,rgba(20,16,12,0.95) 100%);
-            border: 1px solid rgba(212,168,67,0.05);
-            overflow: hidden;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .article-card:hover {
-            border-color: rgba(212,168,67,0.12);
-            box-shadow: var(--shadow-xl),var(--shadow-glow-gold);
-            transform: translateY(-6px);
-        }
-
-        .article-image {
-            width: 100%;height: 200px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .article-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;left: 0;
-            width: 100%;height: 60%;
-            background: linear-gradient(0deg,var(--color-bg-card) 0%,transparent 100%);
-        }
-
-        .article-img-1 {
-            background: linear-gradient(135deg,var(--color-bg-stone) 0%,var(--color-bg-warm) 40%,var(--color-bg-cave) 100%);
-        }
-        .article-img-1::before { content: '📜'; font-size: 3rem; opacity: .3; filter: grayscale(50%); }
-
-        .article-img-2 {
-            background: linear-gradient(135deg,rgba(139,58,58,0.2) 0%,var(--color-bg-warm) 40%,var(--color-bg-cave) 100%);
-        }
-        .article-img-2::before { content: '⚖️'; font-size: 3rem; opacity: .3; filter: grayscale(50%); }
-
-        .article-img-3 {
-            background: linear-gradient(135deg,var(--color-bg-cave) 0%,var(--color-bg-stone) 40%,rgba(139,58,58,0.15) 100%);
-        }
-        .article-img-3::before { content: '🕯️'; font-size: 3rem; opacity: .3; filter: grayscale(50%); }
-
-        .article-category {
-            position: absolute;
-            top: 1rem;left: 1rem;
-            font-family: var(--font-accent-sc);
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--color-gold);
-            background: rgba(10,7,5,0.85);
-            padding: 4px 10px;
-            border: 1px solid rgba(212,168,67,0.2);
-            z-index: 2;
-            backdrop-filter: blur(4px);
-        }
-
-        .article-body {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .article-date {
-            font-family: var(--font-accent-sc);
-            font-size: 0.7rem;
-            color: var(--color-text-faint);
-            letter-spacing: 1.5px;
-            margin-bottom: 0.8rem;
-        }
-
-        .article-card h3 {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--color-text-primary);
-            letter-spacing: 1px;
-            line-height: 1.5;
-            margin-bottom: 0.8rem;
-            transition: var(--transition-smooth);
-        }
-
-        .article-card:hover h3 { color: var(--color-gold-bright); }
-
-        .article-card .excerpt {
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            line-height: 1.7;
-            flex: 1;
-            margin-bottom: 1.2rem;
-        }
-
-        .article-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(212,168,67,0.06);
-        }
-
-        .read-more {
-            font-family: var(--font-accent-sc);
-            font-size: 0.7rem;
-            color: var(--color-gold-dark);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: var(--transition-smooth);
-        }
-
-        .article-card:hover .read-more { color: var(--color-gold); }
-
-        .read-more-arrow {
-            display: inline-block;
-            transition: var(--transition-smooth);
-        }
-
-        .article-card:hover .read-more-arrow { transform: translateX(4px); }
-
-        .read-time {
-            font-family: var(--font-accent-sc);
-            font-size: 0.65rem;
-            color: var(--color-text-faint);
-            letter-spacing: 1px;
-        }
-
-        /* ============================================
-           SCRIPTURE BANNER
-           ============================================ */
-        .scripture-banner {
-            position: relative;
-            padding: 5rem 2rem;
-            text-align: center;
-            background:
-                radial-gradient(ellipse at 50% 50%,rgba(42,33,24,0.5) 0%,transparent 60%),
-                linear-gradient(180deg,var(--color-bg-deepest) 0%,var(--color-bg-stone) 50%,var(--color-bg-deepest) 100%);
-            overflow: hidden;
-        }
-
-        .scripture-banner::before {
-            content: '"';
-            position: absolute;
-            top: 1rem;left: 50%;
-            transform: translateX(-50%);
-            font-family: var(--font-display);
-            font-size: 8rem;
-            color: rgba(212,168,67,0.05);
-            line-height: 1;
-        }
-
-        .scripture-text {
-            font-family: var(--font-accent);
-            font-size: clamp(1.2rem,2.5vw,1.6rem);
-            font-style: italic;
-            color: var(--color-parchment);
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-            line-height: 2;
-            text-shadow: var(--shadow-text);
-            position: relative;
-            z-index: 2;
-        }
-
-        .scripture-ref {
-            font-family: var(--font-heading);
-            font-size: 0.85rem;
-            color: var(--color-gold-dark);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* ============================================
-           NEWSLETTER SECTION
-           ============================================ */
-        .newsletter-section {
-            background:
-                radial-gradient(ellipse at 50% 50%,rgba(42,33,24,0.5) 0%,transparent 50%),
-                linear-gradient(180deg,var(--color-bg-deepest) 0%,var(--color-bg-dark) 50%,var(--color-bg-deepest) 100%);
-        }
-
-        .newsletter-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .newsletter-icon { margin-bottom: 1.5rem; }
-
-        .newsletter-icon svg {
-            filter: drop-shadow(0 0 10px rgba(212,168,67,0.2));
-        }
-
         .newsletter-form {
             display: flex;
+            justify-content: center;
             gap: 0;
-            max-width: 500px;
-            margin: 2rem auto 0;
+            max-width: 400px;
+            margin: 1.5rem auto 0;
         }
-
-        .newsletter-form input[type="email"] {
-            flex: 1;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            color: var(--color-text-primary);
-            background: rgba(30,24,18,0.8);
-            border: 1px solid rgba(212,168,67,0.15);
-            border-right: none;
-            padding: 14px 20px;
-            outline: none;
-            transition: var(--transition-smooth);
-        }
-
-        .newsletter-form input[type="email"]::placeholder {
-            color: var(--color-text-faint);
-            font-style: italic;
-        }
-
-        .newsletter-form input[type="email"]:focus {
-            border-color: var(--color-gold-dark);
-            box-shadow: inset 0 0 10px rgba(212,168,67,0.05),0 0 15px rgba(212,168,67,0.08);
-            background: rgba(35,28,21,0.9);
-        }
-
-        .newsletter-form button {
-            font-family: var(--font-heading);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--color-bg-deepest);
-            background: linear-gradient(135deg,var(--color-gold-dark),var(--color-gold));
-            border: 1px solid var(--color-gold);
-            padding: 14px 24px;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            white-space: nowrap;
-        }
-
-        .newsletter-form button:hover {
-            background: linear-gradient(135deg,var(--color-gold),var(--color-gold-bright));
-            box-shadow: 0 0 20px rgba(212,168,67,0.3);
-        }
-
-        .newsletter-consent {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            max-width: 500px;
-            margin: 1.2rem auto 0;
-            text-align: left;
-        }
-
-        .newsletter-consent input[type="checkbox"] {
-            margin-top: 4px;
-            accent-color: var(--color-gold);
-            min-width: 16px;
-            min-height: 16px;
-            cursor: pointer;
-        }
-
-        .newsletter-consent label {
-            font-family: var(--font-accent);
-            font-size: 0.8rem;
-            color: var(--color-text-faint);
-            line-height: 1.5;
-            cursor: pointer;
-        }
-
-        .newsletter-consent a {
-            color: var(--color-gold-dark);
-            text-decoration: underline;
-            transition: var(--transition-smooth);
-        }
-
-        .newsletter-consent a:hover { color: var(--color-gold); }
-
-        .newsletter-privacy {
-            font-family: var(--font-accent);
-            font-size: 0.8rem;
-            color: var(--color-text-faint);
-            font-style: italic;
-            margin-top: 1rem;
-        }
-
-        .newsletter-success {
-            display: none;
-            font-family: var(--font-accent);
-            font-size: 1.1rem;
-            color: var(--color-gold);
-            font-style: italic;
-            margin-top: 1.5rem;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .newsletter-success.show { display: block; }
-
-        .form-error {
-            display: none;
-            font-family: var(--font-accent);
-            font-size: 0.85rem;
-            color: var(--color-accent-red);
-            margin-top: 0.8rem;
-        }
-
-        .form-error.show { display: block; }
-
-        /* ============================================
-           TIMELINE SECTION
-           ============================================ */
-        .timeline-section {
-            background:
-                radial-gradient(ellipse at 80% 50%,rgba(42,33,24,0.3) 0%,transparent 50%),
-                linear-gradient(180deg,var(--color-bg-deepest) 0%,var(--color-bg-cave) 50%,var(--color-bg-deepest) 100%);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding-left: 40px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;left: 14px;
-            width: 1px;height: 100%;
-            background: linear-gradient(180deg,transparent 0%,var(--color-gold-dim) 10%,var(--color-gold-dim) 90%,transparent 100%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 1.5rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -30px;top: 8px;
-            width: 9px;height: 9px;
-            border-radius: 50%;
-            background: var(--color-gold-dark);
-            border: 2px solid var(--color-bg-deepest);
-            box-shadow: 0 0 8px rgba(212,168,67,0.2);
-            transition: var(--transition-smooth);
-        }
-
-        .timeline-item:hover::before {
-            background: var(--color-gold);
-            box-shadow: 0 0 15px rgba(212,168,67,0.4);
-            transform: scale(1.3);
-        }
-
-        .timeline-date {
-            font-family: var(--font-accent-sc);
-            font-size: 0.7rem;
-            color: var(--color-text-faint);
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item h4 {
-            font-family: var(--font-heading);
-            font-size: 1.05rem;
-            color: var(--color-text-primary);
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            transition: var(--transition-smooth);
-        }
-
-        .timeline-item:hover h4 { color: var(--color-gold); }
-
-        .timeline-item p {
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            line-height: 1.7;
-        }
-
-        .timeline-tag {
-            display: inline-block;
-            font-family: var(--font-accent-sc);
-            font-size: 0.6rem;
-            color: var(--color-gold-dim);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border: 1px solid rgba(212,168,67,0.1);
-            padding: 2px 8px;
-            margin-top: 0.8rem;
-        }
-
-        /* ============================================
-           LGPD / COOKIE BANNER
-           ============================================ */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;left: 0;right: 0;
-            z-index: 9999;
-            background: rgba(10,7,5,0.97);
-            border-top: 1px solid rgba(212,168,67,0.15);
-            padding: 1.5rem 2rem;
-            display: none;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .cookie-banner.active { display: block; }
-
-        .cookie-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .cookie-text {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .cookie-text h4 {
-            font-family: var(--font-heading);
-            font-size: 0.85rem;
-            color: var(--color-gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .cookie-text p {
-            font-family: var(--font-accent);
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
-            line-height: 1.6;
-        }
-
-        .cookie-text a {
-            color: var(--color-gold-dark);
-            text-decoration: underline;
-        }
-
-        .cookie-text a:hover { color: var(--color-gold); }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-shrink: 0;
-        }
-
-        .cookie-btn {
-            font-family: var(--font-heading);
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            border-radius: 2px;
-        }
-
-        .cookie-btn-accept {
-            background: linear-gradient(135deg,var(--color-gold-dark),var(--color-gold));
-            color: var(--color-bg-deepest);
-            border: 1px solid var(--color-gold);
-        }
-
-        .cookie-btn-accept:hover {
-            background: linear-gradient(135deg,var(--color-gold),var(--color-gold-bright));
-            box-shadow: 0 0 15px rgba(212,168,67,0.3);
-        }
-
-        .cookie-btn-reject {
+        .newsletter-form input {
             background: transparent;
-            color: var(--color-text-muted);
-            border: 1px solid rgba(212,168,67,0.15);
-        }
-
-        .cookie-btn-reject:hover {
-            color: var(--color-gold);
-            border-color: var(--color-gold-dim);
-        }
-
-        /* ============================================
-           LEGAL PAGES SECTION
-           ============================================ */
-        .legal-section {
-            background: var(--color-bg-deepest);
-            padding: 4rem 2rem;
-        }
-
-        .legal-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .legal-content h2 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            color: var(--color-gold);
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-        }
-
-        .legal-content h3 {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            color: var(--color-gold-dark);
-            margin: 2rem 0 1rem;
-            letter-spacing: 1px;
-        }
-
-        .legal-content p {
-            color: var(--color-text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.9;
-        }
-
-        .legal-content ul {
-            list-style: none;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .legal-content li {
-            color: var(--color-text-muted);
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .legal-content li::before {
-            content: '›';
-            position: absolute;
-            left: -1rem;
-            color: var(--color-gold-dim);
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-        .footer {
-            position: relative;
-            background:
-                radial-gradient(ellipse at 50% 0%,rgba(42,33,24,0.3) 0%,transparent 50%),
-                var(--color-bg-deepest);
-            border-top: 1px solid rgba(212,168,67,0.06);
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-container { max-width: 1200px; margin: 0 auto; }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand h3 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            color: var(--color-gold);
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            text-shadow: var(--shadow-text-glow);
-        }
-
-        .footer-brand p {
-            font-family: var(--font-accent);
-            font-size: 0.95rem;
-            color: var(--color-text-muted);
-            font-style: italic;
-            line-height: 1.8;
-            max-width: 300px;
-        }
-
-        .footer-column h4 {
-            font-family: var(--font-heading);
-            font-size: 0.75rem;
-            color: var(--color-gold-dark);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-column ul { list-style: none; }
-        .footer-column li { margin-bottom: 0.6rem; }
-
-        .footer-column a {
-            font-family: var(--font-accent);
-            font-size: 0.9rem;
-            color: var(--color-text-muted);
-            text-decoration: none;
-            transition: var(--transition-smooth);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .footer-column a::before {
-            content: '›';
-            color: var(--color-gold-dim);
-            transition: var(--transition-smooth);
-        }
-
-        .footer-column a:hover { color: var(--color-gold); }
-        .footer-column a:hover::before { color: var(--color-gold); transform: translateX(3px); }
-
-        .footer-legal-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(212,168,67,0.06);
-        }
-
-        .footer-legal-links a {
-            font-family: var(--font-accent-sc);
-            font-size: 0.7rem;
-            color: var(--color-text-faint);
-            text-decoration: none;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: var(--transition-smooth);
-        }
-
-        .footer-legal-links a:hover { color: var(--color-gold-dark); }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(212,168,67,0.06);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-bottom p {
-            font-family: var(--font-accent-sc);
-            font-size: 0.7rem;
-            color: var(--color-text-faint);
-            letter-spacing: 1.5px;
-        }
-
-        .footer-verse {
-            font-family: var(--font-accent);
-            font-size: 0.85rem;
-            color: var(--color-text-faint);
-            font-style: italic;
-        }
-
-        .footer-cnpj {
-            font-family: var(--font-accent-sc);
-            font-size: 0.65rem;
-            color: var(--color-text-faint);
-            letter-spacing: 1px;
-            margin-top: 0.8rem;
-            opacity: 0.7;
-        }
-
-        /* ============================================
-           BACK TO TOP
-           ============================================ */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;right: 2rem;
-            width: 44px;height: 44px;
-            background: rgba(30,24,18,0.9);
-            border: 1px solid rgba(212,168,67,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-smooth);
-            backdrop-filter: blur(8px);
-        }
-
-        .back-to-top.visible { opacity: 1; visibility: visible; }
-
-        .back-to-top:hover {
-            background: rgba(42,33,24,0.95);
-            border-color: var(--color-gold-dark);
-            box-shadow: var(--shadow-glow-gold);
-            transform: translateY(-3px);
-        }
-
-        /* ============================================
-           SCROLL ANIMATIONS
-           ============================================ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        .reveal-delay-1{transition-delay:.1s}
-        .reveal-delay-2{transition-delay:.2s}
-        .reveal-delay-3{transition-delay:.3s}
-        .reveal-delay-4{transition-delay:.4s}
-        .reveal-delay-5{transition-delay:.5s}
-        .reveal-delay-6{transition-delay:.6s}
-
-        /* ============================================
-           KEYFRAMES
-           ============================================ */
-        @keyframes fadeInUp {
-            from{opacity:0;transform:translateY(20px)}
-            to{opacity:1;transform:translateY(0)}
-        }
-
-        @keyframes fadeInDown {
-            from{opacity:0;transform:translateY(-20px)}
-            to{opacity:1;transform:translateY(0)}
-        }
-
-        @keyframes fadeIn {
-            from{opacity:0}to{opacity:1}
-        }
-
-        /* ============================================
-           LOADING OVERLAY
-           ============================================ */
-        .loading-overlay {
-            position: fixed;
-            inset: 0;
-            background: var(--color-bg-deepest);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 1.5rem;
-            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
-        }
-
-        .loading-overlay.hidden { opacity: 0; visibility: hidden; }
-
-        .loading-cross {
-            animation: loadingPulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes loadingPulse {
-            0%,100%{opacity:.5;transform:scale(1)}
-            50%{opacity:1;transform:scale(1.1)}
-        }
-
-        .loading-text {
-            font-family: var(--font-accent-sc);
-            font-size: 0.75rem;
-            color: var(--color-gold-dark);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        /* ============================================
-           PRIVACY POLICY MODAL
-           ============================================ */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            z-index: 10001;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            backdrop-filter: blur(4px);
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal-content {
-            background: var(--color-bg-cave);
-            border: 1px solid rgba(212,168,67,0.1);
-            max-width: 800px;
+            border: 1px solid var(--gold-dim);
+            border-right: none;
+            padding: 10px 15px;
+            color: var(--text);
+            font-family: inherit;
+            outline: none;
             width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 3rem;
-            position: relative;
-            box-shadow: var(--shadow-xl);
         }
-
-        .modal-content::-webkit-scrollbar{width:6px}
-        .modal-content::-webkit-scrollbar-track{background:var(--color-bg-dark)}
-        .modal-content::-webkit-scrollbar-thumb{background:var(--color-gold-dark);border-radius:3px}
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;right: 1rem;
-            width: 36px;height: 36px;
-            background: none;
-            border: 1px solid rgba(212,168,67,0.15);
-            color: var(--color-gold);
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-smooth);
-        }
-
-        .modal-close:hover {
-            border-color: var(--color-gold);
-            background: rgba(212,168,67,0.05);
-        }
-
-        .modal-content h2 {
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
-            color: var(--color-gold);
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-            padding-right: 2rem;
-        }
-
-        .modal-content h3 {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            color: var(--color-gold-dark);
-            margin: 1.5rem 0 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .modal-content p {
-            color: var(--color-text-secondary);
-            margin-bottom: 0.8rem;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        .modal-content ul {
-            list-style: none;
-            padding-left: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .modal-content li {
-            color: var(--color-text-muted);
-            margin-bottom: 0.4rem;
-            font-size: 0.9rem;
-        }
-
-        .modal-content li::before {
-            content: '›';
-            margin-right: 0.5rem;
-            color: var(--color-gold-dim);
-        }
-
-        .modal-date {
-            font-family: var(--font-accent-sc);
+        .newsletter-form button {
+            background: var(--gold-dim);
+            color: var(--bg);
+            border: 1px solid var(--gold-dim);
+            padding: 10px 20px;
+            font-family: 'Cinzel', serif;
             font-size: 0.7rem;
-            color: var(--color-text-faint);
-            letter-spacing: 1.5px;
-            margin-bottom: 1.5rem;
-            display: block;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background 0.3s;
         }
+        .newsletter-form button:hover { background: var(--gold); }
 
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
-        @media (max-width: 1024px) {
-            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-            .articles-grid { grid-template-columns: 1fr; }
+        /* FOOTER DISCRETO */
+        footer {
+            padding: 3rem 1.5rem 2rem;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            color: var(--text-faint);
+            letter-spacing: 2px;
+            border-top: 1px solid rgba(201, 168, 76, 0.04);
         }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .nav-hamburger { display: flex; }
-            .section { padding: 4rem 1.5rem; }
-            .topics-grid { grid-template-columns: 1fr; }
-            .newsletter-form { flex-direction: column; }
-            .newsletter-form input[type="email"] { border-right: 1px solid rgba(212,168,67,0.15); border-bottom: none; }
-            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-            .timeline { padding-left: 30px; }
-            .timeline-item { padding-left: 1rem; }
-            .cookie-container { flex-direction: column; text-align: center; }
-            .cookie-buttons { justify-content: center; }
-            .footer-legal-links { justify-content: center; }
+        .footer-links {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
         }
-
-        @media (max-width: 480px) {
-            body { font-size: 16px; }
-            .hero-cta-group { flex-direction: column; align-items: center; }
-            .btn { width: 100%; justify-content: center; max-width: 280px; }
-            .modal-content { padding: 2rem 1.5rem; }
+        .footer-links a {
+            color: var(--text-faint);
+            text-decoration: none;
+            transition: color 0.3s;
         }
+        .footer-links a:hover { color: var(--gold-dim); }
 
-        /* Print styles */
-        @media print {
-            .nav-bar, .mobile-menu, .torch-light, .hero-particles,
-            .hero-scroll-indicator, .back-to-top, .cookie-banner,
-            .loading-overlay, .modal-overlay { display: none !important; }
-            body { background: white; color: black; }
-            .hero { min-height: auto; padding: 2rem; }
-            .section { padding: 2rem; }
+        /* MODAIS E COOKIES DISCRETOS */
+        .cookie-banner {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: #000; border-top: 1px solid var(--gold-dim);
+            padding: 1rem 2rem; display: none; justify-content: space-between;
+            align-items: center; font-size: 0.8rem; color: var(--text-muted); z-index: 9999;
+        }
+        .cookie-banner.show { display: flex; }
+        .cookie-btn { background: var(--gold-dim); color: #000; border: none; padding: 6px 16px; font-family: 'Cinzel', serif; font-size: 0.7rem; cursor: pointer; }
+
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 10000;
+            display: none; align-items: center; justify-content: center; padding: 2rem;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box { background: #0c0906; border: 1px solid var(--gold-dim); max-width: 600px; padding: 2rem; position: relative; font-size: 0.9rem; color: var(--text-muted); }
+        .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--gold); font-size: 1.2rem; cursor: pointer; }
+
+        @media (max-width: 600px) {
+            .nav { padding: 1.5rem 1rem; }
+            .hero { padding: 3rem 1rem 2rem; }
+            .newsletter-form { flex-direction: column; gap: 0.5rem; }
+            .newsletter-form input { border-right: 1px solid var(--gold-dim); }
         }
     </style>
 </head>
 <body>
 
-    <!-- SKIP TO CONTENT (Acessibilidade WCAG 2.1) -->
-    <a href="#conteudo-principal" class="skip-to-content">Pular para o conteúdo principal</a>
+    <!-- NAVEGAÇÃO -->
+    <nav class="nav">
+        <a href="/" class="nav-brand">✝ CORRIGINDO A ROTA</a>
+        <a href="/admin/" class="nav-link">Acesso Restrito</a>
+    </nav>
 
-    <!-- LOADING OVERLAY -->
-    <div class="loading-overlay" id="loadingOverlay" role="status" aria-label="Carregando página">
-        <div class="loading-cross">
-            <svg width="40" height="50" viewBox="0 0 40 50" fill="none" aria-hidden="true">
-                <rect x="16" y="0" width="8" height="50" fill="#8a6d22" rx="1"/>
-                <rect x="4" y="12" width="32" height="7" fill="#8a6d22" rx="1"/>
-            </svg>
+    <!-- HERO MINIMALISTA -->
+    <header class="hero">
+        <div class="hero-cross">✝</div>
+        <h1 class="hero-title">CORRIGINDO A ROTA</h1>
+        <p class="hero-subtitle">
+            "Num mundo que distorce as Escrituras, ousamos investigar e restaurar aquilo que foi adulterado. A verdade não teme o escrutínio — ela o exige."
+        </p>
+        <div class="divider"></div>
+    </header>
+
+    <!-- LISTA EDITORIAL DE ARTIGOS -->
+    <main class="articles-section">
+        <span class="section-label">Publicações &amp; Investigações</span>
+        <div class="articles-list" id="homepageArticles">
+            <p style="text-align:center; color: var(--text-faint); font-style:italic;">Consultando os arquivos sagrados...</p>
         </div>
-        <span class="loading-text">Corrigindo a Rota</span>
+    </main>
+
+    <!-- NEWSLETTER DISCRETA -->
+    <section class="newsletter-minimal">
+        <h4>RECEBA AS ATUALIZAÇÕES</h4>
+        <p style="font-size: 0.9rem; color: var(--text-faint); font-style: italic;">Sem spam. Apenas ensinos e investigações profundas.</p>
+        <form class="newsletter-form" onsubmit="alert('E-mail cadastrado com sucesso.'); return false;">
+            <input type="email" placeholder="Seu e-mail..." required>
+            <button type="submit">ACOMPANHAR</button>
+        </form>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-links">
+            <a href="#" onclick="openModal('privacyModal'); return false;">Privacidade</a>
+            <a href="#" onclick="openModal('termsModal'); return false;">Termos</a>
+            <a href="#" onclick="openModal('cookieModal'); return false;">Cookies</a>
+        </div>
+        <p>© CORRIGINDO A ROTA — "Santifica-os na verdade; a tua palavra é a verdade." João 17:17</p>
+    </footer>
+
+    <!-- BANNER COOKIES LGPD -->
+    <div class="cookie-banner" id="cookieBanner">
+        <span>Utilizamos cookies estritamente necessários para o funcionamento do site (LGPD).</span>
+        <button class="cookie-btn" onclick="acceptCookies()">ENTENDIDO</button>
     </div>
 
-    <!-- AMBIENT TORCHES (decorativo) -->
-    <div class="torch-light torch-left" aria-hidden="true"></div>
-    <div class="torch-light torch-right" aria-hidden="true"></div>
-
-    <!-- PAGE WRAPPER -->
-    <div class="page-wrapper">
-
-        <!-- ==========================================
-             NAVIGATION (landmark: banner)
-             ========================================== -->
-        <header>
-            <nav class="nav-bar" id="navBar" role="navigation" aria-label="Navegação principal">
-                <div class="nav-container">
-                    <a href="/" class="nav-brand" aria-label="Corrigindo a Rota — Página inicial">
-                        <div class="nav-brand-icon">
-                            <svg width="32" height="40" viewBox="0 0 32 40" fill="none" aria-hidden="true">
-                                <rect x="13" y="0" width="6" height="40" fill="#b8922e" rx="1"/>
-                                <rect x="3" y="10" width="26" height="5.5" fill="#b8922e" rx="1"/>
-                                <circle cx="16" cy="12.5" r="2" fill="#0a0705"/>
-                            </svg>
-                        </div>
-                        <span class="nav-brand-text">Corrigindo a Rota</span>
-                    </a>
-
-                    <ul class="nav-links" role="menubar">
-                        <li role="none"><a href="#inicio" role="menuitem" aria-current="page">Início</a></li>
-                        <li role="none"><a href="#missao" role="menuitem">Missão</a></li>
-                        <li role="none"><a href="#temas" role="menuitem">Temas</a></li>
-                        <li role="none"><a href="#artigos" role="menuitem">Artigos</a></li>
-                        <li role="none"><a href="#newsletter" role="menuitem">Inscreva-se</a></li>
-                    </ul>
-
-                    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileMenu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </nav>
-
-            <!-- MOBILE MENU -->
-            <div class="mobile-menu" id="mobileMenu" role="menu" aria-label="Menu de navegação móvel">
-                <a href="#inicio" role="menuitem" onclick="closeMobile()">Início</a>
-                <a href="#missao" role="menuitem" onclick="closeMobile()">Missão</a>
-                <a href="#temas" role="menuitem" onclick="closeMobile()">Temas</a>
-                <a href="#artigos" role="menuitem" onclick="closeMobile()">Artigos</a>
-                <a href="#newsletter" role="menuitem" onclick="closeMobile()">Inscreva-se</a>
-            </div>
-        </header>
-
-        <!-- ==========================================
-             HERO SECTION
-             ========================================== -->
-        <section class="hero" id="inicio" aria-label="Apresentação do site Corrigindo a Rota">
-            <div class="hero-particles" aria-hidden="true">
-                <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-                <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-                <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-                <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-            </div>
-
-            <div class="hero-content">
-                <div class="hero-cross" aria-hidden="true">
-                    <svg width="50" height="65" viewBox="0 0 50 65" fill="none">
-                        <rect x="20" y="0" width="10" height="65" fill="#b8922e" rx="1"/>
-                        <rect x="4" y="15" width="42" height="8" fill="#b8922e" rx="1"/>
-                        <rect x="22" y="2" width="6" height="61" fill="#d4a843" rx="1" opacity="0.3"/>
-                        <rect x="6" y="17" width="38" height="4" fill="#d4a843" rx="1" opacity="0.3"/>
-                    </svg>
-                </div>
-
-                <p class="hero-subtitle-top">Educação Bíblica &amp; Investigação da Verdade</p>
-
-                <h1 class="hero-title">Corrigindo a Rota</h1>
-
-                <div class="hero-divider" aria-hidden="true"></div>
-
-                <p class="hero-description">
-                    Num mundo que distorce as Escrituras, ousamos investigar, confrontar e restaurar
-                    aquilo que foi adulterado. A verdade não teme o escrutínio — ela o exige.
-                </p>
-
-                <blockquote class="hero-verse" cite="https://www.bibliaonline.com.br/acf/jo/8/32">
-                    <strong>— João 8:32 —</strong><br>
-                    "E conhecereis a verdade, e a verdade vos libertará."
-                </blockquote>
-
-                <div class="hero-cta-group">
-                    <a href="#temas" class="btn btn-primary" aria-label="Explorar temas de estudo bíblico">Explorar Temas</a>
-                    <a href="#newsletter" class="btn btn-secondary" aria-label="Inscrever-se para receber atualizações">Receber Atualizações</a>
-                </div>
-            </div>
-
-            <div class="hero-scroll-indicator" aria-hidden="true">
-                <span>Descubra</span>
-                <div class="scroll-arrow"></div>
-            </div>
-        </section>
-
-        <!-- CONTEÚDO PRINCIPAL (landmark: main) -->
-        <main id="conteudo-principal">
-
-            <div class="stone-separator" aria-hidden="true"><div class="crack"></div></div>
-
-            <!-- ==========================================
-                 ABOUT / MISSION SECTION
-                 ========================================== -->
-            <section class="section about-section" id="missao" aria-labelledby="missao-titulo">
-                <div class="section-container">
-                    <div class="section-header reveal">
-                        <span class="section-label">Nossa Missão</span>
-                        <h2 class="section-title" id="missao-titulo">Por Que Existimos</h2>
-                        <div class="section-divider" aria-hidden="true"></div>
-                        <p class="section-subtitle">Restaurar o caminho que muitos abandonaram — a fidelidade irrestrita às Escrituras Sagradas.</p>
-                    </div>
-
-                    <div class="about-grid">
-                        <div class="about-text reveal">
-                            <h3>A Verdade Sob as Ruínas</h3>
-                            <p>Vivemos tempos em que a palavra de Deus é moldada conforme conveniências humanas.
-                                Doutrinas são diluídas, contextos são ignorados, e tradições substituem o texto sagrado.
-                                O projeto <em>Corrigindo a Rota</em> nasceu da urgência de devolver às Escrituras
-                                seu lugar de autoridade absoluta na vida do crente.</p>
-                            <p>Não somos motivados por polêmica vazia, mas pelo amor à verdade e pelo cuidado
-                                com aqueles que foram enganados por ensinos distorcidos. Cada artigo é fruto de estudo
-                                cuidadoso, pesquisa nos originais e compromisso com a integridade bíblica.</p>
-                        </div>
-
-                        <div class="about-pillars" role="list">
-                            <article class="pillar-card reveal reveal-delay-1" role="listitem">
-                                <span class="pillar-icon" aria-hidden="true">📖</span>
-                                <h4>Sola Scriptura</h4>
-                                <p>Somente as Escrituras como autoridade final em matéria de fé e prática cristã.</p>
-                            </article>
-                            <article class="pillar-card reveal reveal-delay-2" role="listitem">
-                                <span class="pillar-icon" aria-hidden="true">🔍</span>
-                                <h4>Investigação Rigorosa</h4>
-                                <p>Análise textual, contexto histórico e estudo dos idiomas originais — hebraico e grego.</p>
-                            </article>
-                            <article class="pillar-card reveal reveal-delay-3" role="listitem">
-                                <span class="pillar-icon" aria-hidden="true">⚔️</span>
-                                <h4>Denúncia com Amor</h4>
-                                <p>Confrontar o erro não por orgulho, mas por fidelidade a Deus e amor ao próximo.</p>
-                            </article>
-                            <article class="pillar-card reveal reveal-delay-4" role="listitem">
-                                <span class="pillar-icon" aria-hidden="true">🕯️</span>
-                                <h4>Luz nas Trevas</h4>
-                                <p>Iluminar aquilo que foi deliberadamente obscurecido por líderes e instituições.</p>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="stone-separator" aria-hidden="true"><div class="crack"></div></div>
-
-            <!-- ==========================================
-                 TOPICS SECTION
-                 ========================================== -->
-            <section class="section topics-section" id="temas" aria-labelledby="temas-titulo">
-                <div class="section-container">
-                    <div class="section-header reveal">
-                        <span class="section-label">Áreas de Estudo</span>
-                        <h2 class="section-title" id="temas-titulo">Temas Investigados</h2>
-                        <div class="section-divider" aria-hidden="true"></div>
-                        <p class="section-subtitle">Navegue pelos temas que estamos estudando e denunciando com profundidade bíblica.</p>
-                    </div>
-
-                    <div class="topics-grid" role="list">
-                        <a href="#" class="topic-card reveal reveal-delay-1" role="listitem" aria-label="Heresias Históricas — 12 artigos disponíveis">
-                            <div class="topic-icon-wrapper" aria-hidden="true">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <path d="M20 4L4 14v18l16 4 16-4V14L20 4z" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <path d="M20 8l-12 8v14l12 3 12-3V16L20 8z" stroke="#8a6d22" stroke-width="0.5" fill="none"/>
-                                    <line x1="20" y1="4" x2="20" y2="36" stroke="#6b5519" stroke-width="0.5"/>
-                                </svg>
-                            </div>
-                            <h3>Heresias Históricas</h3>
-                            <p>Erros doutrinários que persistem há séculos e ainda infectam a igreja contemporânea.</p>
-                            <span class="topic-count">12 artigos</span>
-                        </a>
-
-                        <a href="#" class="topic-card reveal reveal-delay-2" role="listitem" aria-label="Teologia Bíblica — 18 artigos disponíveis">
-                            <div class="topic-icon-wrapper" aria-hidden="true">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <circle cx="20" cy="20" r="15" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <circle cx="20" cy="20" r="8" stroke="#8a6d22" stroke-width="0.5" fill="none"/>
-                                    <line x1="20" y1="5" x2="20" y2="35" stroke="#6b5519" stroke-width="0.5"/>
-                                    <line x1="5" y1="20" x2="35" y2="20" stroke="#6b5519" stroke-width="0.5"/>
-                                </svg>
-                            </div>
-                            <h3>Teologia Bíblica</h3>
-                            <p>Estudos profundos sobre os atributos de Deus, cristologia, pneumatologia e escatologia.</p>
-                            <span class="topic-count">18 artigos</span>
-                        </a>
-
-                        <a href="#" class="topic-card reveal reveal-delay-3" role="listitem" aria-label="Manuscritos e Traduções — 9 artigos disponíveis">
-                            <div class="topic-icon-wrapper" aria-hidden="true">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <path d="M8 8h24v28H8z" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <line x1="12" y1="14" x2="28" y2="14" stroke="#8a6d22" stroke-width="0.5"/>
-                                    <line x1="12" y1="19" x2="28" y2="19" stroke="#8a6d22" stroke-width="0.5"/>
-                                    <line x1="12" y1="24" x2="28" y2="24" stroke="#8a6d22" stroke-width="0.5"/>
-                                    <line x1="12" y1="29" x2="22" y2="29" stroke="#8a6d22" stroke-width="0.5"/>
-                                </svg>
-                            </div>
-                            <h3>Manuscritos &amp; Traduções</h3>
-                            <p>Análise crítica das traduções bíblicas e a fidelidade aos manuscritos originais.</p>
-                            <span class="topic-count">9 artigos</span>
-                        </a>
-
-                        <a href="#" class="topic-card reveal reveal-delay-4" role="listitem" aria-label="Falsos Mestres — 15 artigos disponíveis">
-                            <div class="topic-icon-wrapper" aria-hidden="true">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <path d="M20 6l-14 8v12l14 8 14-8V14L20 6z" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <path d="M10 14l10 6 10-6" stroke="#8a6d22" stroke-width="0.5" fill="none"/>
-                                    <line x1="20" y1="20" x2="20" y2="34" stroke="#8a6d22" stroke-width="0.5"/>
-                                </svg>
-                            </div>
-                            <h3>Falsos Mestres</h3>
-                            <p>Identificando lobos em pele de cordeiro e os sinais de alerta que a Bíblia nos dá.</p>
-                            <span class="topic-count">15 artigos</span>
-                        </a>
-
-                        <a href="#" class="topic-card reveal reveal-delay-5" role="listitem" aria-label="Antigo e Novo Testamento — 22 artigos disponíveis">
-                            <div class="topic-icon-wrapper" aria-hidden="true">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <rect x="6" y="10" width="12" height="24" rx="1" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <rect x="22" y="10" width="12" height="24" rx="1" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <path d="M12 10V6h16v4" stroke="#8a6d22" stroke-width="0.5" fill="none"/>
-                                </svg>
-                            </div>
-                            <h3>Antigo &amp; Novo Testamento</h3>
-                            <p>Estudos comparativos, tipologias, profecias cumpridas e a unidade das Escrituras.</p>
-                            <span class="topic-count">22 artigos</span>
-                        </a>
-
-                        <a href="#" class="topic-card reveal reveal-delay-6" role="listitem" aria-label="Vida Cristã Autêntica — 14 artigos disponíveis">
-                            <div class="topic-icon-wrapper" aria-hidden="true">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <path d="M20 4C12 4 6 10 6 18c0 12 14 18 14 18s14-6 14-18c0-8-6-14-14-14z" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <path d="M15 16h10M20 11v10" stroke="#8a6d22" stroke-width="1.5"/>
-                                </svg>
-                            </div>
-                            <h3>Vida Cristã Autêntica</h3>
-                            <p>O que significa de fato seguir a Cristo — sem os adornos da religiosidade vazia.</p>
-                            <span class="topic-count">14 artigos</span>
-                        </a>
-
-                        <a href="#" class="topic-card reveal reveal-delay-1" role="listitem" aria-label="Alertas e Denúncias — 20 artigos disponíveis">
-                            <div class="topic-icon-wrapper" aria-hidden="true">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <path d="M8 32L20 8l12 24H8z" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <line x1="20" y1="16" x2="20" y2="24" stroke="#8a6d22" stroke-width="1.5"/>
-                                    <circle cx="20" cy="28" r="1.5" fill="#8a6d22"/>
-                                </svg>
-                            </div>
-                            <h3>Alertas &amp; Denúncias</h3>
-                            <p>Exposição de práticas antibíblicas dentro de denominações e movimentos religiosos.</p>
-                            <span class="topic-count">20 artigos</span>
-                        </a>
-
-                        <a href="#" class="topic-card reveal reveal-delay-2" role="listitem" aria-label="Pais da Igreja — 8 artigos disponíveis">
-                            <div class="topic-icon-wrapper" aria-hidden="true">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <circle cx="20" cy="12" r="6" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <path d="M8 36c0-8 5-14 12-14s12 6 12 14" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                </svg>
-                            </div>
-                            <h3>Pais da Igreja</h3>
-                            <p>O que os primeiros cristãos ensinavam — e como isso confronta o cristianismo moderno.</p>
-                            <span class="topic-count">8 artigos</span>
-                        </a>
-
-                        <a href="#" class="topic-card reveal reveal-delay-3" role="listitem" aria-label="Apologética — 11 artigos disponíveis">
-                            <div class="topic-icon-wrapper" aria-hidden="true">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <path d="M6 20h28" stroke="#b8922e" stroke-width="1.5"/>
-                                    <path d="M20 6v28" stroke="#b8922e" stroke-width="1.5"/>
-                                    <circle cx="20" cy="20" r="4" stroke="#6b5519" stroke-width="0.5" fill="none"/>
-                                    <circle cx="20" cy="20" r="12" stroke="#6b5519" stroke-width="0.3" fill="none"/>
-                                </svg>
-                            </div>
-                            <h3>Apologética</h3>
-                            <p>Defesa racional e bíblica da fé cristã contra ataques filosóficos e culturais.</p>
-                            <span class="topic-count">11 artigos</span>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SCRIPTURE BANNER -->
-            <aside class="scripture-banner" aria-label="Versículo em destaque">
-                <blockquote class="scripture-text reveal" cite="https://www.bibliaonline.com.br/acf/1jo/4/1">
-                    "Amados, não creiais em todo espírito, mas provai se os espíritos são de Deus,
-                    porque já muitos falsos profetas se têm levantado no mundo."
-                </blockquote>
-                <cite class="scripture-ref reveal reveal-delay-1">— 1 João 4:1 —</cite>
-            </aside>
-
-            <!-- ==========================================
-                 ARTICLES SECTION
-                 ========================================== -->
-            <section class="section articles-section" id="artigos" aria-labelledby="artigos-titulo">
-                <div class="section-container">
-                    <div class="section-header reveal">
-                        <span class="section-label">Publicações Recentes</span>
-                        <h2 class="section-title" id="artigos-titulo">Artigos em Destaque</h2>
-                        <div class="section-divider" aria-hidden="true"></div>
-                        <p class="section-subtitle">Estudos aprofundados para quem não se contenta com respostas superficiais.</p>
-                    </div>
-
-                    <div class="articles-grid" role="list">
-                        <article class="article-card reveal reveal-delay-1" role="listitem">
-                            <div class="article-image article-img-1">
-                                <span class="article-category">Heresias</span>
-                            </div>
-                            <div class="article-body">
-                                <time class="article-date" datetime="2024-12-15">15 de Dezembro, 2024</time>
-                                <h3>A Teologia da Prosperidade à Luz dos Originais Gregos</h3>
-                                <p class="excerpt">Uma análise textual de Malaquias 3:10 e João 10:10 nos manuscritos originais revela algo muito diferente do que pregam os púlpitos modernos...</p>
-                                <div class="article-footer">
-                                    <span class="read-more">Ler completo <span class="read-more-arrow" aria-hidden="true">→</span></span>
-                                    <span class="read-time"><time datetime="PT12M">12 min leitura</time></span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="article-card reveal reveal-delay-2" role="listitem">
-                            <div class="article-image article-img-2">
-                                <span class="article-category">Denúncia</span>
-                            </div>
-                            <div class="article-body">
-                                <time class="article-date" datetime="2024-12-08">08 de Dezembro, 2024</time>
-                                <h3>Quando a Tradição Substituiu a Escritura: Um Alerta Necessário</h3>
-                                <p class="excerpt">Como práticas sem qualquer base bíblica se tornaram "sagradas" dentro de denominações inteiras — e por que isso é perigoso...</p>
-                                <div class="article-footer">
-                                    <span class="read-more">Ler completo <span class="read-more-arrow" aria-hidden="true">→</span></span>
-                                    <span class="read-time"><time datetime="PT15M">15 min leitura</time></span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="article-card reveal reveal-delay-3" role="listitem">
-                            <div class="article-image article-img-3">
-                                <span class="article-category">Estudo Bíblico</span>
-                            </div>
-                            <div class="article-body">
-                                <time class="article-date" datetime="2024-12-01">01 de Dezembro, 2024</time>
-                                <h3>Os Sete Selos de Apocalipse: O que Realmente Significam?</h3>
-                                <p class="excerpt">Uma exegese cuidadosa de Apocalipse 6-8, considerando o contexto do primeiro século e as chaves hermenêuticas que muitos ignoram...</p>
-                                <div class="article-footer">
-                                    <span class="read-more">Ler completo <span class="read-more-arrow" aria-hidden="true">→</span></span>
-                                    <span class="read-time"><time datetime="PT20M">20 min leitura</time></span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <div class="stone-separator" aria-hidden="true"><div class="crack"></div></div>
-
-            <!-- ==========================================
-                 TIMELINE SECTION
-                 ========================================== -->
-            <section class="section timeline-section" aria-labelledby="cronologia-titulo">
-                <div class="section-container">
-                    <div class="section-header reveal">
-                        <span class="section-label">Cronologia</span>
-                        <h2 class="section-title" id="cronologia-titulo">Publicações Recentes</h2>
-                        <div class="section-divider" aria-hidden="true"></div>
-                    </div>
-
-                    <ol class="timeline" role="list">
-                        <li class="timeline-item reveal">
-                            <time class="timeline-date" datetime="2024-12-20">20 de Dezembro, 2024</time>
-                            <h4>O Perigo do Evangelho Antropocêntrico</h4>
-                            <p>Quando o homem se torna o centro da mensagem, Deus é reduzido a um mero assistente dos nossos desejos.</p>
-                            <span class="timeline-tag">Falsos Mestres</span>
-                        </li>
-                        <li class="timeline-item reveal">
-                            <time class="timeline-date" datetime="2024-12-18">18 de Dezembro, 2024</time>
-                            <h4>Contextualização vs. Distorção: Onde Está a Linha?</h4>
-                            <p>Há diferença entre tornar a mensagem compreensível e alterá-la para agradar ouvidos.</p>
-                            <span class="timeline-tag">Teologia Bíblica</span>
-                        </li>
-                        <li class="timeline-item reveal">
-                            <time class="timeline-date" datetime="2024-12-14">14 de Dezembro, 2024</time>
-                            <h4>A Doutrina dos Apóstolos vs. Práticas Modernas</h4>
-                            <p>Um comparativo entre Atos 2:42-47 e o que vemos nas congregações de hoje.</p>
-                            <span class="timeline-tag">Pais da Igreja</span>
-                        </li>
-                        <li class="timeline-item reveal">
-                            <time class="timeline-date" datetime="2024-12-10">10 de Dezembro, 2024</time>
-                            <h4>Manuscritos do Mar Morto: O que Eles Confirmam?</h4>
-                            <p>Evidências arqueológicas que fortalecem a confiabilidade do texto bíblico que possuímos.</p>
-                            <span class="timeline-tag">Manuscritos</span>
-                        </li>
-                        <li class="timeline-item reveal">
-                            <time class="timeline-date" datetime="2024-12-05">05 de Dezembro, 2024</time>
-                            <h4>Livre Exame das Escrituras: Direito ou Dever?</h4>
-                            <p>Por que todo cristão deve ser um estudante das Escrituras — e não apenas um ouvinte passivo.</p>
-                            <span class="timeline-tag">Vida Cristã</span>
-                        </li>
-                    </ol>
-                </div>
-            </section>
-
-            <div class="stone-separator" aria-hidden="true"><div class="crack"></div></div>
-
-            <!-- ==========================================
-                 NEWSLETTER SECTION
-                 ========================================== -->
-            <section class="section newsletter-section" id="newsletter" aria-labelledby="newsletter-titulo">
-                <div class="section-container">
-                    <div class="newsletter-wrapper">
-                        <div class="section-header reveal">
-                            <div class="newsletter-icon" aria-hidden="true">
-                                <svg width="48" height="38" viewBox="0 0 48 38" fill="none">
-                                    <rect x="2" y="2" width="44" height="34" rx="2" stroke="#b8922e" stroke-width="1.5" fill="none"/>
-                                    <path d="M2 4l22 16L46 4" stroke="#8a6d22" stroke-width="1" fill="none"/>
-                                    <path d="M2 36l16-14" stroke="#6b5519" stroke-width="0.5"/>
-                                    <path d="M46 36L30 22" stroke="#6b5519" stroke-width="0.5"/>
-                                </svg>
-                            </div>
-                            <span class="section-label">Fique Atualizado</span>
-                            <h2 class="section-title" id="newsletter-titulo">Receba a Verdade</h2>
-                            <div class="section-divider" aria-hidden="true"></div>
-                            <p class="section-subtitle">
-                                Inscreva-se para receber novos artigos, estudos e alertas diretamente em seu e-mail.
-                                Sem spam — apenas conteúdo que edifica e confronta.
-                            </p>
-                        </div>
-
-                        <form class="newsletter-form reveal" id="newsletterForm" novalidate aria-label="Formulário de inscrição na newsletter">
-                            <label for="emailInput" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">Endereço de e-mail</label>
-                            <input
-                                type="email"
-                                id="emailInput"
-                                name="email"
-                                placeholder="Seu melhor e-mail..."
-                                required
-                                autocomplete="email"
-                                aria-describedby="emailHelp formError"
-                                aria-required="true"
-                            >
-                            <button type="submit" aria-label="Inscrever-se na newsletter">Inscrever</button>
-                        </form>
-
-                        <div class="newsletter-consent reveal reveal-delay-1" id="consentArea">
-                            <input
-                                type="checkbox"
-                                id="lgpdConsent"
-                                name="consent"
-                                required
-                                aria-required="true"
-                            >
-                            <label for="lgpdConsent">
-                                Concordo com a <a href="#" onclick="openModal('privacyModal'); return false;">Política de Privacidade</a>
-                                e autorizo o envio de comunicações por e-mail. Posso cancelar a qualquer momento.
-                                <small>(Conforme Lei nº 13.709/2018 — LGPD)</small>
-                            </label>
-                        </div>
-
-                        <p class="newsletter-privacy reveal reveal-delay-2" id="emailHelp">
-                            🔒 Seus dados são sagrados para nós. Nunca compartilharemos seu e-mail com terceiros.
-                        </p>
-
-                        <div class="form-error" id="formError" role="alert" aria-live="polite"></div>
-
-                        <div class="newsletter-success" id="newsletterSuccess" role="status" aria-live="polite">
-                            ✦ Bem-vindo(a) à jornada pela verdade. Você receberá nosso próximo estudo em breve.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FINAL SCRIPTURE -->
-            <aside class="scripture-banner" aria-label="Versículo de encerramento">
-                <blockquote class="scripture-text reveal" cite="https://www.bibliaonline.com.br/acf/1ts/5/21">
-                    "Examinai tudo. Retende o bem."
-                </blockquote>
-                <cite class="scripture-ref reveal reveal-delay-1">— 1 Tessalonicenses 5:21 —</cite>
-            </aside>
-
-        </main>
-
-        <!-- ==========================================
-             FOOTER (landmark: contentinfo)
-             ========================================== -->
-        <footer class="footer" role="contentinfo">
-            <div class="footer-container">
-                <div class="footer-grid">
-                    <div class="footer-brand">
-                        <h3>✝ Corrigindo a Rota</h3>
-                        <p>"Porque virá tempo em que não suportarão a sã doutrina..." — 2 Timóteo 4:3.
-                            Esse tempo chegou. E nós estamos aqui.</p>
-                    </div>
-
-                    <nav class="footer-column" aria-label="Navegação do rodapé">
-                        <h4>Navegação</h4>
-                        <ul>
-                            <li><a href="#inicio">Início</a></li>
-                            <li><a href="#missao">Missão</a></li>
-                            <li><a href="#temas">Temas</a></li>
-                            <li><a href="#artigos">Artigos</a></li>
-                        </ul>
-                    </nav>
-
-                    <div class="footer-column">
-                        <h4>Temas Populares</h4>
-                        <ul>
-                            <li><a href="#">Heresias Históricas</a></li>
-                            <li><a href="#">Falsos Mestres</a></li>
-                            <li><a href="#">Teologia Bíblica</a></li>
-                            <li><a href="#">Apologética</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Recursos</h4>
-                        <ul>
-                            <li><a href="#">Guia de Estudo</a></li>
-                            <li><a href="#">Bibliografia</a></li>
-                            <li><a href="#">Ferramentas</a></li>
-                            <li><a href="#newsletter">Newsletter</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- LINKS LEGAIS OBRIGATÓRIOS -->
-                <nav class="footer-legal-links" aria-label="Links legais">
-                    <a href="#" onclick="openModal('privacyModal'); return false;">Política de Privacidade</a>
-                    <a href="#" onclick="openModal('termsModal'); return false;">Termos de Uso</a>
-                    <a href="#" onclick="openModal('cookieModal'); return false;">Política de Cookies</a>
-                    <a href="mailto:contato@corrigindoarota.com.br">Contato</a>
-                </nav>
-
-                <div class="footer-bottom">
-                    <div>
-                        <p>© <span id="currentYear">2024</span> Corrigindo a Rota — Todos os direitos reservados</p>
-                        <p class="footer-cnpj">CNPJ: 00.000.000/0001-00 — Ministério Corrigindo a Rota</p>
-                    </div>
-                    <span class="footer-verse">"Santifica-os na verdade; a tua palavra é a verdade." — João 17:17</span>
-                </div>
-            </div>
-        </footer>
-
-    </div><!-- .page-wrapper -->
-
-    <!-- ==========================================
-         COOKIE / LGPD BANNER
-         ========================================== -->
-    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Aviso sobre cookies e privacidade" aria-describedby="cookieDesc">
-        <div class="cookie-container">
-            <div class="cookie-text">
-                <h4>🔒 Privacidade &amp; Cookies</h4>
-                <p id="cookieDesc">
-                    Utilizamos cookies essenciais para o funcionamento do site. Não coletamos dados pessoais
-                    sem seu consentimento explícito, conforme a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong>.
-                    Leia nossa <a href="#" onclick="openModal('privacyModal'); return false;">Política de Privacidade</a> e
-                    <a href="#" onclick="openModal('cookieModal'); return false;">Política de Cookies</a>.
-                </p>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()" aria-label="Aceitar cookies">Aceitar</button>
-                <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()" aria-label="Recusar cookies opcionais">Recusar</button>
-            </div>
+    <!-- MODAIS LEGAIS (Escondidos) -->
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
+            <h3 style="font-family:'Cinzel',serif; color:var(--gold); margin-bottom:1rem;">Privacidade (LGPD)</h3>
+            <p>Seu e-mail é utilizado exclusivamente para o envio de nossas investigações bíblicas. Respeitamos a Lei nº 13.709/2018.</p>
         </div>
     </div>
 
-    <!-- ==========================================
-         MODAIS LEGAIS
-         ========================================== -->
-
-    <!-- POLÍTICA DE PRIVACIDADE -->
-    <div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Fechar">&times;</button>
-            <h2 id="privacyTitle">Política de Privacidade</h2>
-            <span class="modal-date">Última atualização: Dezembro de 2024</span>
-
-            <h3>1. Identificação do Controlador</h3>
-            <p>O site <strong>Corrigindo a Rota</strong> ("nós", "nosso") é de responsabilidade do Ministério Corrigindo a Rota,
-                inscrito no CNPJ sob nº 00.000.000/0001-00, com sede no Brasil.</p>
-            <p>Encarregado de Proteção de Dados (DPO): contato@corrigindoarota.com.br</p>
-
-            <h3>2. Dados Coletados</h3>
-            <p>Coletamos apenas os dados estritamente necessários:</p>
-            <ul>
-                <li>Endereço de e-mail (quando fornecido voluntariamente via newsletter)</li>
-                <li>Dados de navegação (cookies essenciais e analíticos, quando consentido)</li>
-            </ul>
-
-            <h3>3. Finalidade do Tratamento</h3>
-            <ul>
-                <li>Envio de newsletter com novos artigos e estudos bíblicos</li>
-                <li>Melhoria da experiência de navegação</li>
-                <li>Análise estatística anônima do site</li>
-            </ul>
-
-            <h3>4. Base Legal (Art. 7º da LGPD)</h3>
-            <p>O tratamento de dados pessoais se dá mediante <strong>consentimento do titular</strong> (Art. 7º, I),
-                obtido de forma livre, informada e inequívoca no momento da inscrição na newsletter.</p>
-
-            <h3>5. Direitos do Titular (Art. 18 da LGPD)</h3>
-            <p>Você tem direito a:</p>
-            <ul>
-                <li>Confirmar a existência de tratamento de seus dados</li>
-                <li>Acessar, corrigir ou atualizar seus dados pessoais</li>
-                <li>Solicitar anonimização, bloqueio ou eliminação de dados</li>
-                <li>Revogar o consentimento a qualquer momento</li>
-                <li>Solicitar portabilidade dos dados</li>
-                <li>Obter informação sobre compartilhamento de dados</li>
-            </ul>
-            <p>Para exercer seus direitos, entre em contato: <strong>contato@corrigindoarota.com.br</strong></p>
-
-            <h3>6. Compartilhamento de Dados</h3>
-            <p><strong>Não compartilhamos, vendemos ou cedemos</strong> seus dados pessoais a terceiros, exceto quando
-                exigido por determinação legal ou judicial.</p>
-
-            <h3>7. Segurança</h3>
-            <p>Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acessos
-                não autorizados, destruição, perda ou alteração.</p>
-
-            <h3>8. Retenção dos Dados</h3>
-            <p>Seus dados serão mantidos apenas enquanto necessário para a finalidade declarada ou enquanto
-                durar seu consentimento. Após solicitação de exclusão, os dados serão eliminados em até 15 dias úteis.</p>
-
-            <h3>9. Autoridade Nacional de Proteção de Dados</h3>
-            <p>Caso deseje apresentar reclamação, você pode entrar em contato com a
-                <strong>ANPD — Autoridade Nacional de Proteção de Dados</strong> (www.gov.br/anpd).</p>
-
-            <h3>10. Alterações</h3>
-            <p>Esta política pode ser atualizada periodicamente. Recomendamos revisá-la regularmente.</p>
+    <div class="modal-overlay" id="termsModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
+            <h3 style="font-family:'Cinzel',serif; color:var(--gold); margin-bottom:1rem;">Termos de Uso</h3>
+            <p>Conteúdo educacional e opinativo fundamentado nas Escrituras Sagradas, respaldado pelo Art. 5º da CF/88.</p>
         </div>
     </div>
 
-    <!-- TERMOS DE USO -->
-    <div class="modal-overlay" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('termsModal')" aria-label="Fechar">&times;</button>
-            <h2 id="termsTitle">Termos de Uso</h2>
-            <span class="modal-date">Última atualização: Dezembro de 2024</span>
-
-            <h3>1. Aceitação dos Termos</h3>
-            <p>Ao acessar e utilizar o site Corrigindo a Rota, você concorda com estes Termos de Uso.
-                Caso não concorde, recomendamos que não utilize o site.</p>
-
-            <h3>2. Natureza do Conteúdo</h3>
-            <p>Todo o conteúdo publicado neste site tem caráter <strong>educacional e opinativo</strong>,
-                fundamentado nas Escrituras Sagradas. As análises e interpretações apresentadas refletem
-                o posicionamento teológico dos autores e são oferecidas de boa-fé.</p>
-
-            <h3>3. Propriedade Intelectual</h3>
-            <p>Todo o conteúdo textual, gráfico e audiovisual é protegido pela <strong>Lei nº 9.610/1998</strong>
-                (Lei de Direitos Autorais). É permitida a reprodução parcial para fins educacionais,
-                desde que citada a fonte.</p>
-
-            <h3>4. Citações Bíblicas</h3>
-            <p>As citações bíblicas utilizadas são, salvo indicação em contrário, da versão
-                <strong>Almeida Corrigida Fiel (ACF)</strong>. Textos originais em hebraico e grego são referenciados
-                quando aplicável.</p>
-
-            <h3>5. Responsabilidade</h3>
-            <p>O site não se responsabiliza por decisões tomadas com base exclusiva em seu conteúdo.
-                Recomendamos sempre o estudo pessoal das Escrituras e a busca por aconselhamento pastoral qualificado.</p>
-
-            <h3>6. Denúncias e Críticas</h3>
-            <p>O conteúdo de denúncia publicado neste site é fundamentado em fatos verificáveis, ensinos públicos
-                e análise bíblica. Exercemos o direito à <strong>liberdade de expressão</strong> (Art. 5º, IV da CF/88)
-                e à <strong>liberdade religiosa</strong> (Art. 5º, VI da CF/88), respeitando os limites legais.</p>
-
-            <h3>7. Contato</h3>
-            <p>Para dúvidas sobre estes termos: <strong>contato@corrigindoarota.com.br</strong></p>
-
-            <h3>8. Foro</h3>
-            <p>Fica eleito o foro da Comarca do domicílio do controlador para dirimir quaisquer questões
-                decorrentes destes Termos, conforme a legislação brasileira.</p>
+    <div class="modal-overlay" id="cookieModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('cookieModal')">&times;</button>
+            <h3 style="font-family:'Cinzel',serif; color:var(--gold); margin-bottom:1rem;">Cookies</h3>
+            <p>Apenas cookies de sessão e login são utilizados.</p>
         </div>
     </div>
 
-    <!-- POLÍTICA DE COOKIES -->
-    <div class="modal-overlay" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('cookieModal')" aria-label="Fechar">&times;</button>
-            <h2 id="cookieTitle">Política de Cookies</h2>
-            <span class="modal-date">Última atualização: Dezembro de 2024</span>
-
-            <h3>1. O que são Cookies?</h3>
-            <p>Cookies são pequenos arquivos de texto armazenados em seu dispositivo quando você visita um site.
-                Eles são utilizados para melhorar a experiência de navegação e funcionalidades do site.</p>
-
-            <h3>2. Tipos de Cookies Utilizados</h3>
-            <ul>
-                <li><strong>Cookies Essenciais:</strong> Necessários para o funcionamento básico do site
-                    (ex: preferência de cookies, sessão). Não requerem consentimento.</li>
-                <li><strong>Cookies Analíticos:</strong> Utilizados para entender como os visitantes interagem com o site
-                    (ex: Google Analytics com anonimização de IP). Requerem consentimento.</li>
-            </ul>
-
-            <h3>3. Como Gerenciar Cookies</h3>
-            <p>Você pode configurar seu navegador para recusar cookies ou alertá-lo quando cookies estão
-                sendo enviados. Note que algumas funcionalidades do site podem ser afetadas.</p>
-
-            <h3>4. Cookies de Terceiros</h3>
-            <p>Utilizamos o Google Fonts para exibição de fontes tipográficas. O Google pode coletar dados
-                de acordo com sua própria política de privacidade.</p>
-
-            <h3>5. Consentimento</h3>
-            <p>Ao clicar em "Aceitar" no banner de cookies, você consente com o uso de todos os tipos de cookies
-                descritos acima. Ao clicar em "Recusar", apenas cookies essenciais serão utilizados.</p>
-        </div>
-    </div>
-
-    <!-- BACK TO TOP -->
-    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo da página" title="Voltar ao topo">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-            <path d="M9 14V4M4 8l5-5 5 5" stroke="#b8922e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
-
-    <!-- ==========================================
-         JAVASCRIPT
-         ========================================== -->
+    <!-- SCRIPTS DE AUTOMAÇÃO E LOGIN -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script>
-        // ========================================
-        // LOADING
-        // ========================================
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loadingOverlay').classList.add('hidden');
-            }, 800);
-        });
+        // BUSCAR ARTIGOS DO GITHUB AUTOMATICAMENTE
+        async function loadHomeArticles() {
+            try {
+                const GITHUB_USER = 'corrigindoarota2026';
+                const GITHUB_REPO = 'corrigindo-a-rota';
+                const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/content/artigos?ref=main`;
 
-        // ========================================
-        // NAVIGATION SCROLL
-        // ========================================
-        const navBar = document.getElementById('navBar');
-        const backToTopBtn = document.getElementById('backToTop');
-        let lastScrollY = 0;
+                const res = await fetch(apiUrl);
+                if (!res.ok) throw new Error('Sem artigos');
+                const files = await res.json();
 
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            navBar.classList.toggle('scrolled', scrollY > 50);
-            backToTopBtn.classList.toggle('visible', scrollY > 600);
-            lastScrollY = scrollY;
-        }, { passive: true });
+                const mdFiles = files.filter(f => f.name.endsWith('.md'));
+                const articles = await Promise.all(mdFiles.map(async file => {
+                    const cRes = await fetch(file.download_url);
+                    const text = await cRes.text();
+                    const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+                    if (!match) return null;
+                    const data = jsyaml.load(match[1]);
+                    return { ...data, slug: file.name.replace('.md', '') };
+                }));
 
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+                const published = articles
+                    .filter(a => a && a.status === 'publicado')
+                    .sort((a,b) => new Date(b.date) - new Date(a.date));
 
-        // ========================================
-        // MOBILE MENU
-        // ========================================
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        hamburger.addEventListener('click', () => {
-            const isActive = hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', isActive);
-            document.body.style.overflow = isActive ? 'hidden' : '';
-        });
-
-        function closeMobile() {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        }
-
-        // ========================================
-        // INTERSECTION OBSERVER
-        // ========================================
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                const list = document.getElementById('homepageArticles');
+                if (published.length === 0) {
+                    list.innerHTML = `<p style="text-align:center; color: var(--text-faint); font-style:italic;">Nenhuma publicação no momento. Acesse o Acesso Restrito para publicar.</p>`;
+                    return;
                 }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // ========================================
-        // NEWSLETTER FORM (com validação LGPD)
-        // ========================================
-        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const email = document.getElementById('emailInput');
-            const consent = document.getElementById('lgpdConsent');
-            const errorDiv = document.getElementById('formError');
-            const successDiv = document.getElementById('newsletterSuccess');
-
-            // Reset error
-            errorDiv.classList.remove('show');
-            errorDiv.textContent = '';
-
-            // Validate email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email.value || !emailRegex.test(email.value)) {
-                errorDiv.textContent = 'Por favor, insira um endereço de e-mail válido.';
-                errorDiv.classList.add('show');
-                email.focus();
-                return;
-            }
-
-            // Validate LGPD consent
-            if (!consent.checked) {
-                errorDiv.textContent = 'Você precisa concordar com a Política de Privacidade para se inscrever (conforme LGPD).';
-                errorDiv.classList.add('show');
-                consent.focus();
-                return;
-            }
-
-            // Success
-            this.style.display = 'none';
-            document.getElementById('consentArea').style.display = 'none';
-            document.querySelector('.newsletter-privacy').style.display = 'none';
-            errorDiv.classList.remove('show');
-            successDiv.classList.add('show');
-
-            // Log (replace with backend API call)
-            console.log('Newsletter subscription:', {
-                email: email.value,
-                consent: true,
-                timestamp: new Date().toISOString(),
-                consentText: 'Concordo com a Política de Privacidade e autorizo o envio de comunicações por e-mail.'
-            });
-        });
-
-        // ========================================
-        // SMOOTH SCROLL
-        // ========================================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    const navHeight = navBar.offsetHeight;
-                    const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight;
-                    window.scrollTo({ top: targetPos, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // ========================================
-        // PARALLAX (hero particles)
-        // ========================================
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrolled = window.scrollY;
-                    const particles = document.querySelector('.hero-particles');
-                    if (particles && scrolled < window.innerHeight) {
-                        particles.style.transform = `translateY(${scrolled * 0.3}px)`;
-                    }
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
-
-        // ========================================
-        // COOKIE / LGPD BANNER
-        // ========================================
-        function initCookieBanner() {
-            const consent = localStorage.getItem('cookie_consent');
-            if (!consent) {
-                setTimeout(() => {
-                    document.getElementById('cookieBanner').classList.add('active');
-                }, 1500);
+                list.innerHTML = published.map(art => `
+                    <a href="/artigos/post.html?slug=${art.slug}" class="article-item">
+                        <span class="article-meta">${(art.category || 'ESTUDO').toUpperCase()} · ${art.reading_time || 10} MIN DE LEITURA</span>
+                        <h3>${art.title}</h3>
+                        <p>${art.description || ''}</p>
+                    </a>
+                `).join('');
+            } catch (err) {
+                document.getElementById('homepageArticles').innerHTML = `<p style="text-align:center; color: var(--text-faint); font-style:italic;">Acesse o <a href="/admin/" style="color:var(--gold);">Acesso Restrito</a> para publicar.</p>`;
             }
         }
+        loadHomeArticles();
 
+        // NETLIFY IDENTITY REDIRECTION
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+                }
+            });
+        }
+
+        // LGPD COOKIES
+        if (!localStorage.getItem('cookie_accepted')) { document.getElementById('cookieBanner').classList.add('show'); }
         function acceptCookies() {
-            localStorage.setItem('cookie_consent', JSON.stringify({
-                essential: true,
-                analytics: true,
-                timestamp: new Date().toISOString()
-            }));
-            document.getElementById('cookieBanner').classList.remove('active');
-            // Initialize analytics here if needed
-            console.log('Cookies accepted - analytics enabled');
+            localStorage.setItem('cookie_accepted', 'true');
+            document.getElementById('cookieBanner').classList.remove('show');
         }
 
-        function rejectCookies() {
-            localStorage.setItem('cookie_consent', JSON.stringify({
-                essential: true,
-                analytics: false,
-                timestamp: new Date().toISOString()
-            }));
-            document.getElementById('cookieBanner').classList.remove('active');
-            console.log('Optional cookies rejected - only essential');
-        }
-
-        initCookieBanner();
-
-        // ========================================
-        // MODALS
-        // ========================================
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            // Focus trap
-            const closeBtn = modal.querySelector('.modal-close');
-            if (closeBtn) closeBtn.focus();
-            // Close on ESC
-            modal.addEventListener('keydown', handleModalEsc);
-        }
-
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-            modal.removeEventListener('keydown', handleModalEsc);
-        }
-
-        function handleModalEsc(e) {
-            if (e.key === 'Escape') {
-                const activeModal = document.querySelector('.modal-overlay.active');
-                if (activeModal) closeModal(activeModal.id);
-            }
-        }
-
-        // Close modal on overlay click
-        document.querySelectorAll('.modal-overlay').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeModal(modal.id);
-            });
-        });
-
-        // ========================================
-        // DYNAMIC YEAR
-        // ========================================
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // ========================================
-        // KEYBOARD NAVIGATION ENHANCEMENT
-        // ========================================
-        document.addEventListener('keydown', (e) => {
-            // Close mobile menu on Escape
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                closeMobile();
-            }
-        });
-
-        // ========================================
-        // PRINT HANDLER
-        // ========================================
-        window.addEventListener('beforeprint', () => {
-            document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-        });
-
-        // ========================================
-        // SERVICE WORKER REGISTRATION (PWA-ready)
-        // ========================================
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // navigator.serviceWorker.register('/sw.js').catch(() => {});
-            });
-        }
-
-        // ========================================
-        // PERFORMANCE: Lazy load non-critical fonts
-        // ========================================
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(() => {
-                document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
-                    link.media = 'all';
-                });
-            });
-        }
+        // MODAIS
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
     </script>
-
-    <!-- ==========================================
-         NOSCRIPT FALLBACK
-         ========================================== -->
-    <noscript>
-        <style>
-            .loading-overlay { display: none !important; }
-            .reveal { opacity: 1 !important; transform: none !important; }
-            .cookie-banner { display: block !important; }
-            .hero-cross, .hero-subtitle-top, .hero-title, .hero-divider,
-            .hero-description, .hero-verse, .hero-cta-group, .hero-scroll-indicator {
-                opacity: 1 !important;
-                animation: none !important;
-            }
-        </style>
-        <div style="background:#8b3a3a;color:white;text-align:center;padding:12px;font-family:serif;font-size:14px;">
-            ⚠️ Este site funciona melhor com JavaScript ativado. Algumas funcionalidades podem estar limitadas.
-        </div>
-    </noscript>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
-   
 </body>
 </html>
