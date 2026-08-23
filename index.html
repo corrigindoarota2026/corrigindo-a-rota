@@ -7,14 +7,15 @@
     <meta name="description" content="Estudos bíblicos aprofundados, denúncia de heresias e investigação das Escrituras nos idiomas originais.">
     <link rel="canonical" href="https://corrigindoarota.netlify.app/">
 
-    <!-- ✝️ FAVICON DA CRUZ DOURADA (Aba do Navegador e Celular) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23c9a84c' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23c9a84c' rx='1'/%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070503'/%3E%3Crect x='13' y='3' width='6' height='26' fill='%23c9a84c' rx='1'/%3E%3Crect x='5' y='10' width='22' height='5' fill='%23c9a84c' rx='1'/%3E%3C/svg%3E">
+    <!-- ✝️ FAVICONS COMPATÍVEIS COM TODOS OS NAVEGADORES E CELULARES -->
+    <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23070503'/%3E%3Cpath d='M42 10h16v80H42z' fill='%23c9a84c'/%3E%3Cpath d='M15 32h70v16H15z' fill='%23c9a84c'/%3E%3C/svg%3E" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23070503'/%3E%3Cpath d='M42 10h16v80H42z' fill='%23c9a84c'/%3E%3Cpath d='M15 32h70v16H15z' fill='%23c9a84c'/%3E%3C/svg%3E" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23070503'/%3E%3Cpath d='M42 10h16v80H42z' fill='%23c9a84c'/%3E%3Cpath d='M15 32h70v16H15z' fill='%23c9a84c'/%3E%3C/svg%3E">
 
     <!-- 🔐 RASTREADOR NETLIFY IDENTITY -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-    <!-- OPEN GRAPH (Prévia para WhatsApp / Redes) -->
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Corrigindo a Rota — Educação Bíblica">
     <meta property="og:description" content="Investigação das Escrituras e denúncia de heresias.">
@@ -44,7 +45,7 @@
             background-color: var(--bg);
             color: var(--text);
             font-family: 'Crimson Text', Georgia, serif;
-            font-size: 21px; /* FONTE AMPLIADA */
+            font-size: 21px;
             line-height: 1.85;
             min-height: 100vh;
             display: flex;
@@ -53,23 +54,29 @@
             position: relative;
         }
 
-        /* TEXTURA DE PEDRA DE CAVERNA - VISIBILIDADE REFORÇADA */
+        /* REGRA FORÇADA DE TEXTO JUSTIFICADO EM TODO O SITE */
+        p, .article-item p, .hero-subtitle, .modal-box p {
+            text-align: justify !important;
+            text-justify: inter-word !important;
+            -webkit-hyphens: auto !important;
+            -moz-hyphens: auto !important;
+            -ms-hyphens: auto !important;
+            hyphens: auto !important;
+        }
+
+        /* TEXTURA DE ROCHA DE CAVERNA */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
             background:
-                /* Luz de Tocha Superior Sutil */
                 radial-gradient(ellipse at 50% -10%, rgba(201, 168, 76, 0.12) 0%, transparent 60%),
-                /* Sombra das Profundezas */
                 radial-gradient(ellipse at 50% 100%, rgba(3, 2, 1, 0.98) 0%, transparent 80%),
-                /* Grão Marcante de Rocha Antiga */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.09'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 0;
         }
 
-        /* NAVEGAÇÃO ULTRACLEAN */
         .nav {
             padding: 2.2rem 2rem;
             display: flex;
@@ -100,7 +107,6 @@
         }
         .nav-link:hover { color: var(--gold); }
 
-        /* HERO - SOLENE E DIRETO */
         .hero {
             text-align: center;
             padding: 5rem 1.5rem 4rem;
@@ -124,17 +130,15 @@
             line-height: 1.2;
             margin-bottom: 1.8rem;
             text-shadow: 0 0 35px rgba(201, 168, 76, 0.2);
+            text-align: center !important;
         }
         .hero-subtitle {
             font-family: 'IM Fell English', serif;
             font-style: italic;
-            font-size: 1.35rem; /* FONTE AUMENTADA */
+            font-size: 1.35rem;
             color: var(--text-muted);
             line-height: 1.85;
             margin-bottom: 3rem;
-            text-align: justify; /* JUSTIFICADO */
-            text-justify: inter-word;
-            hyphens: auto;
         }
 
         .divider {
@@ -144,7 +148,6 @@
             margin: 0 auto 4rem;
         }
 
-        /* SEÇÃO DE ARTIGOS - DOSSIÊ EDITORIAL */
         .articles-section {
             max-width: 850px;
             margin: 0 auto;
@@ -203,28 +206,22 @@
 
         .article-item h3 {
             font-family: 'Cinzel', serif;
-            font-size: 1.4rem; /* TITULO MAIOR */
+            font-size: 1.4rem;
             color: var(--gold);
             line-height: 1.4;
             margin-bottom: 0.8rem;
             transition: color 0.3s;
+            text-align: left !important;
         }
 
-        .article-item:hover h3 {
-            color: var(--gold-bright);
-        }
+        .article-item:hover h3 { color: var(--gold-bright); }
 
-        /* RESUMO DOS ARTIGOS JUSTIFICADO */
         .article-item p {
-            font-size: 1.05rem; /* AUMENTADO */
+            font-size: 1.05rem;
             color: var(--text-muted);
             line-height: 1.75;
-            text-align: justify; /* JUSTIFICADO */
-            text-justify: inter-word;
-            hyphens: auto;
         }
 
-        /* BANNER DISCRETO DE INSCRICÃO */
         .newsletter-minimal {
             text-align: center;
             padding: 4.5rem 1.5rem;
@@ -271,7 +268,6 @@
         }
         .newsletter-form button:hover { background: var(--gold); }
 
-        /* FOOTER DISCRETO */
         footer {
             padding: 3rem 1.5rem 2rem;
             text-align: center;
@@ -296,7 +292,6 @@
         }
         .footer-links a:hover { color: var(--gold-dim); }
 
-        /* MODAIS E COOKIES DISCRETOS */
         .cookie-banner {
             position: fixed; bottom: 0; left: 0; right: 0;
             background: #000; border-top: 1px solid var(--gold-dim);
@@ -311,7 +306,7 @@
             display: none; align-items: center; justify-content: center; padding: 2rem;
         }
         .modal-overlay.active { display: flex; }
-        .modal-box { background: #0c0906; border: 1px solid var(--gold-dim); max-width: 600px; padding: 2.5rem; position: relative; font-size: 0.95rem; color: var(--text-muted); text-align: justify; }
+        .modal-box { background: #0c0906; border: 1px solid var(--gold-dim); max-width: 600px; padding: 2.5rem; position: relative; font-size: 0.95rem; color: var(--text-muted); }
         .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--gold); font-size: 1.2rem; cursor: pointer; }
 
         @media (max-width: 600px) {
@@ -325,13 +320,11 @@
 </head>
 <body>
 
-    <!-- NAVEGAÇÃO -->
     <nav class="nav">
         <a href="/" class="nav-brand">✝ CORRIGINDO A ROTA</a>
         <a href="/admin/" class="nav-link">Acesso Restrito</a>
     </nav>
 
-    <!-- HERO MINIMALISTA -->
     <header class="hero">
         <div class="hero-cross">✝</div>
         <h1 class="hero-title">CORRIGINDO A ROTA</h1>
@@ -341,7 +334,6 @@
         <div class="divider"></div>
     </header>
 
-    <!-- LISTA EDITORIAL DE ARTIGOS -->
     <main class="articles-section">
         <span class="section-label">Publicações &amp; Investigações</span>
         <div class="articles-list" id="homepageArticles">
@@ -349,17 +341,15 @@
         </div>
     </main>
 
-    <!-- NEWSLETTER DISCRETA -->
     <section class="newsletter-minimal">
         <h4>RECEBA AS ATUALIZAÇÕES</h4>
-        <p style="font-size: 0.95rem; color: var(--text-faint); font-style: italic;">Sem spam. Apenas ensinos e investigações profundas.</p>
+        <p style="font-size: 0.95rem; color: var(--text-faint); font-style: italic; text-align: center !important;">Sem spam. Apenas ensinos e investigações profundas.</p>
         <form class="newsletter-form" onsubmit="alert('E-mail cadastrado com sucesso.'); return false;">
             <input type="email" placeholder="Seu e-mail..." required>
             <button type="submit">ACOMPANHAR</button>
         </form>
     </section>
 
-    <!-- RODAPÉ -->
     <footer>
         <div class="footer-links">
             <a href="#" onclick="openModal('privacyModal'); return false;">Privacidade</a>
@@ -369,13 +359,11 @@
         <p>© CORRIGINDO A ROTA — "Santifica-os na verdade; a tua palavra é a verdade." João 17:17</p>
     </footer>
 
-    <!-- BANNER COOKIES LGPD -->
     <div class="cookie-banner" id="cookieBanner">
         <span>Utilizamos cookies estritamente necessários para o funcionamento do site (LGPD).</span>
         <button class="cookie-btn" onclick="acceptCookies()">ENTENDIDO</button>
     </div>
 
-    <!-- MODAIS LEGAIS (Escondidos) -->
     <div class="modal-overlay" id="privacyModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
@@ -400,10 +388,8 @@
         </div>
     </div>
 
-    <!-- SCRIPTS DE AUTOMAÇÃO E LOGIN -->
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script>
-        // BUSCAR ARTIGOS DO GITHUB AUTOMATICAMENTE
         async function loadHomeArticles() {
             try {
                 const GITHUB_USER = 'corrigindoarota2026';
@@ -430,7 +416,7 @@
 
                 const list = document.getElementById('homepageArticles');
                 if (published.length === 0) {
-                    list.innerHTML = `<p style="text-align:center; color: var(--text-faint); font-style:italic;">Nenhuma publicação no momento. Acesse o Acesso Restrito para publicar.</p>`;
+                    list.innerHTML = `<p style="text-align:center !important; color: var(--text-faint); font-style:italic;">Nenhuma publicação no momento. Acesse o Acesso Restrito para publicar.</p>`;
                     return;
                 }
 
@@ -442,12 +428,11 @@
                     </a>
                 `).join('');
             } catch (err) {
-                document.getElementById('homepageArticles').innerHTML = `<p style="text-align:center; color: var(--text-faint); font-style:italic;">Acesse o <a href="/admin/" style="color:var(--gold);">Acesso Restrito</a> para publicar.</p>`;
+                document.getElementById('homepageArticles').innerHTML = `<p style="text-align:center !important; color: var(--text-faint); font-style:italic;">Acesse o <a href="/admin/" style="color:var(--gold);">Acesso Restrito</a> para publicar.</p>`;
             }
         }
         loadHomeArticles();
 
-        // NETLIFY IDENTITY REDIRECTION
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
                 if (!user) {
@@ -456,14 +441,12 @@
             });
         }
 
-        // LGPD COOKIES
         if (!localStorage.getItem('cookie_accepted')) { document.getElementById('cookieBanner').classList.add('show'); }
         function acceptCookies() {
             localStorage.setItem('cookie_accepted', 'true');
             document.getElementById('cookieBanner').classList.remove('show');
         }
 
-        // MODAIS
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
     </script>
