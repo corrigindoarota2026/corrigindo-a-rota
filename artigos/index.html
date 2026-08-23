@@ -1,454 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todos os Artigos — Corrigindo a Rota</title>
-    <meta name="description" content="Todos os artigos, estudos bíblicos e denúncias publicados pelo Corrigindo a Rota.">
-    <link rel="canonical" href="https://www.corrigindoarota.com.br/artigos/">
-    <meta property="og:title" content="Todos os Artigos — Corrigindo a Rota">
-    <meta property="og:description" content="Estudos bíblicos aprofundados e investigações da verdade.">
-    <meta property="og:url" content="https://www.corrigindoarota.com.br/artigos/">
-    <meta property="og:type" content="website">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0705; --bg-cave: #1a1410; --bg-card: #1e1812;
-            --gold: #b8922e; --gold-bright: #d4a843; --gold-dark: #8a6d22; --gold-dim: #6b5519;
-            --text: #d4c8b5; --text-muted: #7a6b58; --text-faint: #5a4d3e;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Crimson Text', serif;
-            font-size: 18px;
-            line-height: 1.8;
-            min-height: 100vh;
-        }
-        body::before {
-            content: '';
-            position: fixed; inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(42,33,24,0.4) 0%, transparent 60%);
-            pointer-events: none; z-index: 0;
-        }
-
-        /* NAV */
-        .nav {
-            position: sticky; top: 0; z-index: 100;
-            background: rgba(10,7,5,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(184,146,46,0.1);
-            padding: 0 2rem;
-        }
-        .nav-inner {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; align-items: center; justify-content: space-between;
-            height: 64px;
-        }
-        .nav-brand {
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem; color: var(--gold);
-            text-decoration: none; letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-        .nav-links a {
-            font-family: 'IM Fell English SC', serif;
-            font-size: 0.8rem; color: var(--text-muted);
-            text-decoration: none; letter-spacing: 1.5px;
-            text-transform: uppercase; transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--gold-bright); }
-
-        /* HEADER */
-        .page-header {
-            text-align: center;
-            padding: 5rem 2rem 3rem;
-            position: relative; z-index: 1;
-        }
-        .page-header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: var(--gold-bright);
-            letter-spacing: 3px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(212,168,67,0.15);
-            margin-bottom: 1rem;
-        }
-        .page-header p {
-            font-family: 'IM Fell English', serif;
-            font-style: italic;
-            color: var(--text-muted);
-            max-width: 500px; margin: 0 auto;
-        }
-        .divider {
-            width: 80px; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
-            margin: 1.5rem auto;
-        }
-
-        /* FILTERS */
-        .filters {
-            display: flex; flex-wrap: wrap; gap: 0.5rem;
-            justify-content: center;
-            max-width: 900px; margin: 0 auto 3rem;
-            padding: 0 1rem;
-            position: relative; z-index: 1;
-        }
-        .filter-btn {
-            font-family: 'IM Fell English SC', serif;
-            font-size: 0.7rem; letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--text-faint);
-            background: transparent;
-            border: 1px solid rgba(184,146,46,0.1);
-            padding: 6px 14px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .filter-btn:hover, .filter-btn.active {
-            color: var(--gold);
-            border-color: var(--gold-dark);
-            background: rgba(184,146,46,0.05);
-        }
-
-        /* ARTICLES GRID */
-        .articles-container {
-            max-width: 1200px; margin: 0 auto;
-            padding: 0 2rem 4rem;
-            position: relative; z-index: 1;
-        }
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
-        }
-        .article-card {
-            background: linear-gradient(160deg, var(--bg-card), rgba(20,16,12,0.95));
-            border: 1px solid rgba(184,146,46,0.05);
-            overflow: hidden;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            display: flex; flex-direction: column;
-            color: inherit;
-        }
-        .article-card:hover {
-            border-color: rgba(184,146,46,0.15);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.7), 0 0 20px rgba(212,168,67,0.1);
-            transform: translateY(-4px);
-        }
-        .card-image {
-            height: 180px;
-            background: linear-gradient(135deg, var(--bg-cave), #231c15);
-            display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden;
-        }
-        .card-image img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-        .card-image .placeholder-icon {
-            font-size: 2.5rem; opacity: 0.2;
-        }
-        .card-category {
-            position: absolute; top: 0.8rem; left: 0.8rem;
-            font-family: 'IM Fell English SC', serif;
-            font-size: 0.6rem; letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            background: rgba(10,7,5,0.85);
-            padding: 3px 8px;
-            border: 1px solid rgba(184,146,46,0.2);
-        }
-        .card-body {
-            padding: 1.5rem; flex: 1;
-            display: flex; flex-direction: column;
-        }
-        .card-date {
-            font-family: 'IM Fell English SC', serif;
-            font-size: 0.7rem; color: var(--text-faint);
-            letter-spacing: 1.5px; margin-bottom: 0.6rem;
-        }
-        .card-body h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.05rem; color: var(--text);
-            letter-spacing: 0.5px; line-height: 1.5;
-            margin-bottom: 0.8rem;
-            transition: color 0.3s;
-        }
-        .article-card:hover h3 { color: var(--gold-bright); }
-        .card-body p {
-            font-size: 0.95rem; color: var(--text-muted);
-            line-height: 1.7; flex: 1;
-        }
-        .card-footer {
-            display: flex; justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem; margin-top: 1rem;
-            border-top: 1px solid rgba(184,146,46,0.06);
-        }
-        .read-more {
-            font-family: 'IM Fell English SC', serif;
-            font-size: 0.7rem; color: var(--gold-dark);
-            letter-spacing: 2px; text-transform: uppercase;
-        }
-        .read-time {
-            font-family: 'IM Fell English SC', serif;
-            font-size: 0.65rem; color: var(--text-faint);
-        }
-
-        /* EMPTY STATE */
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-faint);
-            font-family: 'IM Fell English', serif;
-            font-style: italic;
-            display: none;
-        }
-        .empty-state.show { display: block; }
-
-        /* LOADING */
-        .loading {
-            text-align: center;
-            padding: 4rem;
-            color: var(--gold-dark);
-            font-family: 'IM Fell English SC', serif;
-            letter-spacing: 3px;
-            font-size: 0.8rem;
-        }
-
-        /* FOOTER */
-        .footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid rgba(184,146,46,0.06);
-            position: relative; z-index: 1;
-        }
-        .footer p {
-            font-family: 'IM Fell English SC', serif;
-            font-size: 0.7rem; color: var(--text-faint);
-            letter-spacing: 1.5px;
-        }
-
-        @media (max-width: 768px) {
-            .articles-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Administrativo — Corrigindo a Rota</title>
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Widget de Login do Netlify -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Editor Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-    <nav class="nav" aria-label="Navegação principal">
-        <div class="nav-inner">
-            <a href="/" class="nav-brand">✝ Corrigindo a Rota</a>
-            <ul class="nav-links">
-                <li><a href="/">Início</a></li>
-                <li><a href="/#temas">Temas</a></li>
-                <li><a href="/#newsletter">Inscreva-se</a></li>
-            </ul>
-        </div>
-    </nav>
+  <script>
+    // 1. REGISTRAR COMPONENTE: CAIXA ELEGANTE
+    CMS.registerEditorComponent({
+      id: "caixa_elegante",
+      label: "📦 Caixa Elegante",
+      fields: [
+        { name: "conteudo", label: "Texto da Caixa", widget: "text" }
+      ],
+      pattern: /^<div class="custom-box">([\s\S]*?)<\/div>$/,
+      fromBlock: function(match) {
+        return { conteudo: match[1] };
+      },
+      toBlock: function(obj) {
+        return `<div class="custom-box">${obj.conteudo || ''}</div>\n\n`;
+      },
+      toPreview: function(obj) {
+        return `
+          <div style="background: linear-gradient(145deg, #1e1812, #120e0a); border: 1px solid #b8922e; border-radius: 2px; padding: 1.5rem; margin: 1.5rem 0; color: #d4c8b5; font-family: 'Crimson Text', serif; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
+            <span style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #0a0705; color: #b8922e; padding: 0 8px; font-size: 0.7rem;">◆</span>
+            ${obj.conteudo || ''}
+          </div>
+        `;
+      }
+    });
 
-    <header class="page-header">
-        <h1>Artigos &amp; Estudos</h1>
-        <div class="divider"></div>
-        <p>Toda a verdade que foi ocultada, agora revelada à luz das Escrituras.</p>
-    </header>
+    // 2. REGISTRAR COMPONENTE: DESTAQUE ENTRE RETAS
+    CMS.registerEditorComponent({
+      id: "destaque_dourado",
+      label: "✨ Destaque entre Retas",
+      fields: [
+        { name: "texto", label: "Texto em Destaque", widget: "text" }
+      ],
+      pattern: /^<div class="custom-highlight">([\s\S]*?)<\/div>$/,
+      fromBlock: function(match) {
+        return { texto: match[1] };
+      },
+      toBlock: function(obj) {
+        return `<div class="custom-highlight">${obj.texto || ''}</div>\n\n`;
+      },
+      toPreview: function(obj) {
+        return `
+          <div style="position: relative; margin: 2rem 0; padding: 1.5rem 1rem; text-align: center; font-family: 'IM Fell English', serif; font-size: 1.2rem; font-style: italic; color: #d4a843; border-top: 1px solid #b8922e; border-bottom: 1px solid #b8922e;">
+            ${obj.texto || ''}
+          </div>
+        `;
+      }
+    });
 
-    <div class="filters" role="group" aria-label="Filtrar por categoria">
-        <button class="filter-btn active" data-filter="todos">Todos</button>
-        <button class="filter-btn" data-filter="heresias">Heresias</button>
-        <button class="filter-btn" data-filter="teologia">Teologia</button>
-        <button class="filter-btn" data-filter="manuscritos">Manuscritos</button>
-        <button class="filter-btn" data-filter="falsos-mestres">Falsos Mestres</button>
-        <button class="filter-btn" data-filter="testamento">Testamento</button>
-        <button class="filter-btn" data-filter="vida-crista">Vida Cristã</button>
-        <button class="filter-btn" data-filter="alertas">Alertas</button>
-        <button class="filter-btn" data-filter="pais-igreja">Pais da Igreja</button>
-        <button class="filter-btn" data-filter="apologetica">Apologética</button>
-    </div>
-
-    <div class="articles-container">
-        <div class="loading" id="loading">Carregando artigos...</div>
-        <div class="articles-grid" id="articlesGrid"></div>
-        <div class="empty-state" id="emptyState">
-            Nenhum artigo encontrado nesta categoria ainda.<br>
-            A verdade está sendo preparada.
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>© 2024 Corrigindo a Rota — Todos os direitos reservados</p>
-    </footer>
-
-    <!-- Marked.js para ler Markdown -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- js-yaml para ler front matter -->
-    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
-
-    <script>
-        const CATEGORY_LABELS = {
-            'heresias': 'Heresias Históricas',
-            'teologia': 'Teologia Bíblica',
-            'manuscritos': 'Manuscritos & Traduções',
-            'falsos-mestres': 'Falsos Mestres',
-            'testamento': 'Antigo & Novo Testamento',
-            'vida-crista': 'Vida Cristã Autêntica',
-            'alertas': 'Alertas & Denúncias',
-            'pais-igreja': 'Pais da Igreja',
-            'apologetica': 'Apologética'
-        };
-
-        const CATEGORY_ICONS = {
-            'heresias': '📖', 'teologia': '🔍', 'manuscritos': '📜',
-            'falsos-mestres': '⚔️', 'testamento': '📕', 'vida-crista': '🕯️',
-            'alertas': '⚠️', 'pais-igreja': '👤', 'apologetica': '🛡️'
-        };
-
-        let allArticles = [];
-
-        // Busca a lista de artigos do GitHub via API
-        async function loadArticles() {
-            try {
-                // ATENÇÃO: Substitua pelo seu usuário e repositório do GitHub
-                const GITHUB_USER = 'corrigindoarota2026';
-                const GITHUB_REPO = 'corrigindo-a-rota';
-                const BRANCH = 'main';
-
-                const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/content/artigos?ref=${BRANCH}`;
-                const response = await fetch(apiUrl);
-
-                if (!response.ok) throw new Error('Repositório não encontrado');
-
-                const files = await response.json();
-                const mdFiles = files.filter(f => f.name.endsWith('.md'));
-
-                const articles = await Promise.all(
-                    mdFiles.map(async (file) => {
-                        const contentResponse = await fetch(file.download_url);
-                        const content = await contentResponse.text();
-                        return parseMarkdownFile(content, file.name);
-                    })
-                );
-
-                allArticles = articles
-                    .filter(a => a.status === 'publicado')
-                    .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                renderArticles(allArticles);
-            } catch (error) {
-                console.log('Modo demonstração - CMS ainda não configurado:', error.message);
-                renderDemoArticles();
-            }
-        }
-
-        function parseMarkdownFile(content, filename) {
-            const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-            if (!match) return null;
-
-            const frontMatter = jsyaml.load(match[1]);
-            return {
-                ...frontMatter,
-                slug: filename.replace('.md', ''),
-                body: match[2]
-            };
-        }
-
-        function renderDemoArticles() {
-            allArticles = [
-                {
-                    title: "A Teologia da Prosperidade à Luz dos Originais Gregos",
-                    description: "Análise textual de Malaquias 3:10 e João 10:10 nos manuscritos originais.",
-                    category: "heresias",
-                    date: "2024-12-15",
-                    reading_time: 12,
-                    slug: "demo-1",
-                    status: "publicado"
-                },
-                {
-                    title: "Quando a Tradição Substituiu a Escritura",
-                    description: "Como práticas sem base bíblica se tornaram sagradas.",
-                    category: "alertas",
-                    date: "2024-12-08",
-                    reading_time: 15,
-                    slug: "demo-2",
-                    status: "publicado"
-                },
-                {
-                    title: "Os Sete Selos de Apocalipse: O que Realmente Significam?",
-                    description: "Exegese cuidadosa de Apocalipse 6-8.",
-                    category: "teologia",
-                    date: "2024-12-01",
-                    reading_time: 20,
-                    slug: "demo-3",
-                    status: "publicado"
-                }
-            ];
-            renderArticles(allArticles);
-        }
-
-        function renderArticles(articles) {
-            const grid = document.getElementById('articlesGrid');
-            const loading = document.getElementById('loading');
-            const empty = document.getElementById('emptyState');
-
-            loading.style.display = 'none';
-
-            if (articles.length === 0) {
-                empty.classList.add('show');
-                return;
-            }
-
-            empty.classList.remove('show');
-
-            grid.innerHTML = articles.map(article => {
-                const dateObj = new Date(article.date);
-                const dateFormatted = dateObj.toLocaleDateString('pt-BR', {
-                    day: 'numeric', month: 'long', year: 'numeric'
-                });
-                const catLabel = CATEGORY_LABELS[article.category] || article.category;
-                const catIcon = CATEGORY_ICONS[article.category] || '📄';
-                const imageUrl = article.featured_image
-                    ? `<img src="${article.featured_image}" alt="${article.image_alt || article.title}" loading="lazy">`
-                    : `<span class="placeholder-icon">${catIcon}</span>`;
-
-                return `
-                    <a href="/artigos/post.html?slug=${article.slug}" class="article-card" data-category="${article.category}">
-                        <div class="card-image">
-                            ${imageUrl}
-                            <span class="card-category">${catLabel}</span>
-                        </div>
-                        <div class="card-body">
-                            <span class="card-date">${dateFormatted}</span>
-                            <h3>${article.title}</h3>
-                            <p>${article.description}</p>
-                            <div class="card-footer">
-                                <span class="read-more">Ler completo →</span>
-                                <span class="read-time">${article.reading_time} min</span>
-                            </div>
-                        </div>
-                    </a>
-                `;
-            }).join('');
-        }
-
-        // Filtros
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.dataset.filter;
-                const filtered = filter === 'todos'
-                    ? allArticles
-                    : allArticles.filter(a => a.category === filter);
-
-                renderArticles(filtered);
-            });
-        });
-
-        loadArticles();
-    </script>
+    // 3. REGISTRAR COMPONENTE: VERSÍCULO SAGRADO
+    CMS.registerEditorComponent({
+      id: "versiculo_sagrado",
+      label: "📖 Versículo Sagrado",
+      fields: [
+        { name: "texto", label: "Texto do Versículo", widget: "text" },
+        { name: "referencia", label: "Referência Bíblica (ex: João 8:32)", widget: "string" }
+      ],
+      pattern: /^<div class="featured-verse"><blockquote>"([\s\S]*?)"<\/blockquote><cite>— (.*?) —<\/cite><\/div>$/,
+      fromBlock: function(match) {
+        return { texto: match[1], referencia: match[2] };
+      },
+      toBlock: function(obj) {
+        return `<div class="featured-verse"><blockquote>"${obj.texto || ''}"</blockquote><cite>— ${obj.referencia || ''} —</cite></div>\n\n`;
+      },
+      toPreview: function(obj) {
+        return `
+          <div style="background: linear-gradient(135deg, #1c1510, #140f0b); border-left: 3px solid #b8922e; padding: 1.5rem; margin: 1.5rem 0; text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,0.6);">
+            <blockquote style="font-family: 'IM Fell English', serif; font-size: 1.1rem; font-style: italic; color: #e6dcce; margin-bottom: 0.5rem;">"${obj.texto || ''}"</blockquote>
+            <cite style="font-family: 'Cinzel', serif; font-size: 0.75rem; color: #b8922e; letter-spacing: 2px; text-transform: uppercase; font-style: normal;">— ${obj.referencia || ''} —</cite>
+          </div>
+        `;
+      }
+    });
+  </script>
 </body>
 </html>
