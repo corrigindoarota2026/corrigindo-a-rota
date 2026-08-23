@@ -1,5 +1,5 @@
 ---
-status: rascunho
+status: publicado
 title: NÃO TEMOS PASTORAS, POIS NÃO PODEMOS MUDAR O QUE DEUS ESTABELECEU!
 description: " Em 2014, a Convenção Batista Brasileira ordenou sua primeira
   mulher ao pastorado, decisãoque reacendeu um debate importante."
