@@ -416,4 +416,43 @@
 
                 const published = articles
                     .filter(a => a && a.status === 'publicado')
-                    .sort((a,b) => new 
+                    .sort((a,b) => new Date(b.date) - new Date(a.date));
+
+                const list = document.getElementById('homepageArticles');
+                if (published.length === 0) {
+                    list.innerHTML = `<p style="text-align:center !important; color: var(--text-faint); font-style:italic;">Nenhuma publicação no momento. Acesse o Acesso Restrito para publicar.</p>`;
+                    return;
+                }
+
+                list.innerHTML = published.map(art => `
+                    <a href="/artigos/post.html?slug=${art.slug}" class="article-item">
+                        <span class="article-meta">${(art.category || 'ESTUDO').toUpperCase()} · ${art.reading_time || 10} MIN DE LEITURA</span>
+                        <h3>${art.title}</h3>
+                        <p>${art.description || ''}</p>
+                    </a>
+                `).join('');
+            } catch (err) {
+                document.getElementById('homepageArticles').innerHTML = `<p style="text-align:center !important; color: var(--text-faint); font-style:italic;">Acesse o <a href="/admin/" style="color:var(--gold);">Acesso Restrito</a> para publicar.</p>`;
+            }
+        }
+        loadHomeArticles();
+
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+                }
+            });
+        }
+
+        if (!localStorage.getItem('cookie_accepted')) { document.getElementById('cookieBanner').classList.add('show'); }
+        function acceptCookies() {
+            localStorage.setItem('cookie_accepted', 'true');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+    </script>
+</body>
+</html>
