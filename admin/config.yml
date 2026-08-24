@@ -1,7 +1,6 @@
 backend:
   name: github
-  repo: usuario/repositorio # SUBSTITUA com seu usuario-github/nome-do-repositorio
-  branch: main
+  repo: corrigindoarota2026/corrigindo-a-rota
 
 media_folder: "static/img"
 public_folder: "/static/img"
