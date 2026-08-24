@@ -6,7 +6,352 @@
     <title>Corrigindo a Rota — Educação Bíblica & Investigação da Verdade</title>
     <meta name="description" content="Estudos bíblicos aprofundados, denúncia de heresias e investigação das Escrituras nos idiomas originais.">
     <link rel="canonical" href="https://corrigindoarota.netlify.app/">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrigindo a Rota — Educação Bíblica & Investigação da Verdade</title>
+    <meta name="description" content="Estudos bíblicos aprofundados, denúncia de heresias e investigação das Escrituras nos idiomas originais.">
+    <link rel="canonical" href="https://corrigindoarota.netlify.app/">
 
+    <!-- ✝️ FAVICONS ORIGINAIS -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%230a0705'/%3E%3Crect x='75' y='20' width='30' height='140' fill='%23b8922e' rx='3'/%3E%3Crect x='30' y='55' width='120' height='25' fill='%23b8922e' rx='3'/%3E%3C/svg%3E">
+
+    <!-- FONTS GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #060504;
+            --gold: #c9a84c;
+            --gold-bright: #e8c97a;
+            --gold-dim: #5e4a19;
+            --text: #d8ccb8;
+            --text-muted: #8c7d6b;
+            --text-faint: #473e31;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 21px;
+            line-height: 1.85;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* TEXTO JUSTIFICADO */
+        p, .hero-subtitle, .article-item p {
+            text-align: justify !important;
+            text-justify: inter-word !important;
+            hyphens: auto !important;
+        }
+
+        /* 🗿 TEXTURA DE ROCHA ESCURA E FISSURAS */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% -10%, rgba(201, 168, 76, 0.14) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 50%, transparent 20%, rgba(3, 2, 1, 0.92) 100%),
+                repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0px, transparent 2px, transparent 8px),
+                repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.25) 0px, transparent 3px, rgba(0, 0, 0, 0.3) 12px),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='stoneGranite'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' result='noise'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23stoneGranite)'/%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='rockFissures'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.008 0.08' numOctaves='3' result='fissure'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23rockFissures)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .nav {
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .nav-brand {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.2rem;
+            color: var(--gold-bright);
+            text-decoration: none;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px rgba(201, 168, 76, 0.3);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2rem 1.5rem 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-cross {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        .hero-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            color: var(--gold-bright);
+            letter-spacing: 4px;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+        .hero-subtitle {
+            font-family: 'IM Fell English', serif;
+            font-style: italic;
+            font-size: 1.35rem;
+            color: var(--text-muted);
+            line-height: 1.85;
+            margin-bottom: 4rem;
+        }
+
+        .divider {
+            width: 70px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+            margin: 0 auto 5rem;
+        }
+
+        .articles-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem 8rem;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .section-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            color: var(--gold-dim);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 4rem;
+            display: block;
+        }
+
+        .articles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .article-item {
+            text-decoration: none;
+            color: inherit;
+            padding: 2.5rem;
+            background: linear-gradient(160deg, rgba(16, 12, 8, 0.8), rgba(7, 5, 3, 0.95));
+            border: 1px solid rgba(201, 168, 76, 0.1);
+            border-left: 3px solid var(--gold-dim);
+            transition: all 0.4s ease;
+            display: block;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+        }
+
+        .article-item:hover {
+            border-color: rgba(201, 168, 76, 0.3);
+            border-left-color: var(--gold);
+            transform: translateY(-4px);
+            background: linear-gradient(160deg, rgba(22, 16, 11, 0.9), rgba(10, 7, 4, 0.98));
+        }
+
+        .article-meta {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: var(--gold-dim);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .article-item h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .article-item p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .newsletter-minimal {
+            text-align: center;
+            padding: 6rem 1.5rem;
+            border-top: 1px solid rgba(201, 168, 76, 0.08);
+            background: rgba(8, 6, 4, 0.8);
+            position: relative;
+            z-index: 2;
+        }
+        .newsletter-minimal h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 450px;
+            margin: 2rem auto 0;
+        }
+        .newsletter-form input {
+            background: rgba(5, 3, 1, 0.9);
+            border: 1px solid var(--gold-dim);
+            border-right: none;
+            padding: 15px 20px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            width: 100%;
+        }
+        .newsletter-form button {
+            background: var(--gold-dim);
+            color: var(--bg);
+            border: 1px solid var(--gold-dim);
+            padding: 15px 30px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            color: var(--text-faint);
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+        }
+        .footer-links {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .footer-links a { color: var(--text-faint); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .hero { padding: 3rem 1rem; }
+            .article-item { padding: 1.8rem; }
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form input { border-right: 1px solid var(--gold-dim); border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="/" class="nav-brand">✝ CORRIGINDO A ROTA</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-cross">✝</div>
+        <h1 class="hero-title">CORRIGINDO A ROTA</h1>
+        <p class="hero-subtitle">
+            "Num mundo que distorce as Escrituras, ousamos investigar e restaurar aquilo que foi adulterado. A verdade não teme o escrutínio — ela o exige."
+        </p>
+        <div class="divider"></div>
+    </header>
+
+    <main class="articles-section">
+        <span class="section-label">Investigações Bíblicas</span>
+        <div class="articles-list" id="homepageArticles">
+            <p style="text-align:center !important; color: var(--text-faint); font-style:italic;">Consultando arquivos...</p>
+        </div>
+    </main>
+
+    <section class="newsletter-minimal">
+        <h4>RECEBA ATUALIZAÇÕES</h4>
+        <p style="font-size: 1rem; color: var(--text-faint); font-style: italic; text-align: center !important;">Sem spam. Apenas ensinos e investigações profundas.</p>
+        <form class="newsletter-form" onsubmit="alert('E-mail cadastrado.'); return false;">
+            <input type="email" placeholder="Seu e-mail..." required>
+            <button type="submit">ACOMPANHAR</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacidade</a>
+            <a href="#">Termos</a>
+            <a href="#">Cookies</a>
+        </div>
+        <p>© CORRIGINDO A ROTA — João 17:17</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script>
+        async function loadHomeArticles() {
+            try {
+                const GITHUB_USER = 'corrigindoarota2026';
+                const GITHUB_REPO = 'corrigindo-a-rota';
+                const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/content/artigos?ref=main`;
+
+                const res = await fetch(apiUrl);
+                const files = await res.json();
+                const mdFiles = files.filter(f => f.name.endsWith('.md'));
+
+                const articles = await Promise.all(mdFiles.map(async file => {
+                    const cRes = await fetch(file.download_url);
+                    const text = await cRes.text();
+                    const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+                    if (!match) return null;
+                    const data = jsyaml.load(match[1]);
+                    return { ...data, slug: file.name.replace('.md', '') };
+                }));
+
+                const published = articles
+                    .filter(a => a && a.status === 'publicado')
+                    .sort((a,b) => new Date(b.date) - new Date(a.date));
+
+                const list = document.getElementById('homepageArticles');
+                if (published.length === 0) {
+                    list.innerHTML = `<p style="text-align:center !important; color: var(--text-faint); font-style:italic;">Nenhuma publicação no momento.</p>`;
+                    return;
+                }
+
+                list.innerHTML = published.map(art => `
+                    <a href="/artigos/post.html?slug=${art.slug}" class="article-item">
+                        <span class="article-meta">${(art.category || 'ESTUDO').toUpperCase()} · ${art.reading_time || 10} MIN</span>
+                        <h3>${art.title}</h3>
+                        <p>${art.description || ''}</p>
+                    </a>
+                `).join('');
+            } catch (err) {
+                document.getElementById('homepageArticles').innerHTML = `<p style="text-align:center !important; color: var(--text-faint); font-style:italic;">Publicações em breve.</p>`;
+            }
+        }
+        loadHomeArticles();
+    </script>
+</body>
+</html>
     <!-- ✝️ FAVICONS ORIGINAIS RESTAURADOS E FUNCIONANDO -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
     <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
