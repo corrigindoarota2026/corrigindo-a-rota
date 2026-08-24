@@ -7,7 +7,7 @@
     <meta name="description" content="Estudos bíblicos aprofundados, denúncia de heresias e investigação das Escrituras nos idiomas originais.">
     <link rel="canonical" href="https://corrigindoarota.netlify.app/">
 
-    <!-- ✝️ FAVICONS ORIGINAIS RESTAURADOS -->
+    <!-- ✝️ FAVICONS ORIGINAIS RESTAURADOS E FUNCIONANDO -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
     <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
     <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='6' y='0' width='4' height='16' fill='%23b8922e' rx='1'/%3E%3Crect x='2' y='4' width='12' height='3' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
@@ -29,8 +29,8 @@
 
     <style>
         :root {
-            --bg: #090705;
-            --bg-cave: #120e0a;
+            --bg: #060504;
+            --bg-cave: #0e0a07;
             --gold: #c9a84c;
             --gold-bright: #e8c97a;
             --gold-dim: #5e4a19;
@@ -63,20 +63,23 @@
             hyphens: auto !important;
         }
 
-        /* 🗿 TEXTURA REALISTA DE ROCHA E CAVERNA (Inspirada na imagem) */
+        /* 🗿 TEXTURA REALISTA DE ROCHA ESCURA E FISSURAS (Baseada na foto enviada) */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
             background:
-                /* Luz Sutil de Tocha */
-                radial-gradient(ellipse at 50% -10%, rgba(201, 168, 76, 0.15) 0%, transparent 60%),
-                /* Sombra Vignette das Profundezas */
-                radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(2, 1, 1, 0.95) 100%),
-                /* Fissuras e Manchas Minerais Escuras (Camada 1 - Grunge) */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='rockNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' result='noise'/%3E%3CfeColorMatrix type='matrix' values='0.2 0 0 0 0  0.2 0 0 0 0  0.2 0 0 0 0  0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23rockNoise)'/%3E%3C/svg%3E"),
-                /* Ranhuras e Trincas de Pedra (Camada 2 - Fisuras) */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cracks'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.015 0.12' numOctaves='4' result='crack'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cracks)'/%3E%3C/svg%3E");
+                /* 1. Iluminação Sutil de Tocha no Topo */
+                radial-gradient(ellipse at 50% -10%, rgba(201, 168, 76, 0.14) 0%, transparent 55%),
+                /* 2. Sombra e Escuridão nas Bordas (Vignette de Caverna) */
+                radial-gradient(ellipse at 50% 50%, transparent 20%, rgba(3, 2, 1, 0.92) 100%),
+                /* 3. Manchas Minerais e Desgaste de Pedra (Textura de Alto Contraste) */
+                repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0px, transparent 2px, transparent 8px),
+                repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.25) 0px, transparent 3px, rgba(0, 0, 0, 0.3) 12px),
+                /* 4. Ruído e Ranhuras Minerais SVG de Alta Definição */
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='stoneGranite'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' result='noise'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23stoneGranite)'/%3E%3C/svg%3E"),
+                /* 5. Trincas e Fissuras Profundas de Rocha */
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='rockFissures'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.008 0.08' numOctaves='3' result='fissure'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23rockFissures)'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 0;
         }
