@@ -7,27 +7,23 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
 
-  <!-- 1. Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <!-- 2. AVISAR AO EDITOR QUE A CONFIGURAÇÃO É EMBUTIDA (Evita o erro 404) -->
+  <!-- AVISAR AO EDITOR QUE A CONFIGURAÇÃO É EMBUTIDA -->
   <script>
     window.CMS_MANUAL_INIT = true;
   </script>
 </head>
 <body>
-  <!-- 3. Decap CMS Engine -->
+  <!-- Decap CMS Engine -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-  <!-- 4. CONFIGURAÇÃO EMBUTIDA -->
+  <!-- CONFIGURAÇÃO EMBUTIDA PARA VERCEL / GITHUB -->
   <script>
     CMS.init({
       config: {
         backend: {
-          name: "git-gateway",
-          branch: "main",
-          identity_url: "https://corrigindoarota.netlify.app/.netlify/identity",
-          gateway_url: "https://corrigindoarota.netlify.app/.netlify/git/github"
+          name: "github",
+          repo: "usuario/repositorio", // SUBSTITUA por seu-usuario/nome-do-repositorio
+          branch: "main"
         },
         media_folder: "static/img",
         public_folder: "/static/img",
