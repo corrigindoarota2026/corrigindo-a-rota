@@ -20,6 +20,11 @@
     // Inicialização para Vercel / GitHub
     CMS.init({
       config: {
+        load_config_file: false, // <-- Adicione esta linha aqui
+        backend: {
+          name: "github",
+          repo: "seu-usuario/seu-repositorio",
+          branch: "main"
         backend: {
           name: "github",
           repo: "corrigindoarota2026/corrigindo-a-rota"
