@@ -1,4 +1,116 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Administrativo — Corrigindo a Rota</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+  <script>
+    window.CMS_MANUAL_INIT = true;
+  </script>
+</head>
+<body>
+  <!-- Decap CMS Engine -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    // Inicialização para Vercel / GitHub
+    CMS.init({
+      config: {
+        backend: {
+          name: "github",
+          repo: "usuario/repositorio", // SUBSTITUA por seu-usuario/nome-do-repositorio
+          branch: "main"
+        },
+        media_folder: "static/img",
+        public_folder: "/static/img",
+        locale: "pt",
+        collections: [
+          {
+            name: "artigos",
+            label: "📜 Artigos e Estudos",
+            label_singular: "Artigo",
+            folder: "content/artigos",
+            create: true,
+            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            fields: [
+              { label: "Status", name: "status", widget: "select", options: ["rascunho", "publicado"], default: "rascunho" },
+              { label: "Título do Artigo", name: "title", widget: "string" },
+              { label: "Resumo (WhatsApp)", name: "description", widget: "text" },
+              { label: "Categoria", name: "category", widget: "select", options: ["heresias", "teologia", "manuscritos", "falsos-mestres", "testamento", "vida-crista", "alertas", "pais-igreja", "apologetica"] },
+              { label: "Data", name: "date", widget: "datetime" },
+              { label: "Tempo de Leitura (min)", name: "reading_time", widget: "number", default: 10 },
+              { label: "Imagem de Capa", name: "featured_image", widget: "image", required: false },
+              { label: "Corpo do Artigo", name: "body", widget: "markdown" }
+            ]
+          }
+        ]
+      }
+    });
+
+    // 1. REGISTRAR COMPONENTE: CAIXA ELEGANTE
+    CMS.registerEditorComponent({
+      id: "caixa_elegante",
+      label: "📦 Caixa Elegante",
+      fields: [{ name: "conteudo", label: "Texto da Caixa", widget: "text" }],
+      pattern: /^<div class="custom-box">([\s\S]*?)<\/div>$/,
+      fromBlock: function(match) { return { conteudo: match[1] }; },
+      toBlock: function(obj) { return `<div class="custom-box">${obj.conteudo || ''}</div>\n\n`; },
+      toPreview: function(obj) {
+        return `
+          <div style="background: linear-gradient(145deg, #1e1812, #120e0a); border: 1px solid #b8922e; border-radius: 2px; padding: 1.5rem; margin: 1.5rem 0; color: #d4c8b5; font-family: 'Crimson Text', serif; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
+            <span style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #0a0705; color: #b8922e; padding: 0 8px; font-size: 0.7rem;">◆</span>
+            ${obj.conteudo || ''}
+          </div>
+        `;
+      }
+    });
+
+    // 2. REGISTRAR COMPONENTE: DESTAQUE ENTRE RETAS
+    CMS.registerEditorComponent({
+      id: "destaque_dourado",
+      label: "✨ Destaque entre Retas",
+      fields: [{ name: "texto", label: "Texto em Destaque", widget: "text" }],
+      pattern: /^<div class="custom-highlight">([\s\S]*?)<\/div>$/,
+      fromBlock: function(match) { return { texto: match[1] }; },
+      toBlock: function(obj) { return `<div class="custom-highlight">${obj.texto || ''}</div>\n\n`; },
+      toPreview: function(obj) {
+        return `
+          <div style="position: relative; margin: 2rem 0; padding: 1.5rem 1rem; text-align: center; font-family: 'IM Fell English', serif; font-size: 1.2rem; font-style: italic; color: #d4a843; border-top: 1px solid #b8922e; border-bottom: 1px solid #b8922e;">
+            ${obj.texto || ''}
+          </div>
+        `;
+      }
+    });
+
+    // 3. REGISTRAR COMPONENTE: VERSÍCULO SAGRADO
+    CMS.registerEditorComponent({
+      id: "versiculo_sagrado",
+      label: "📖 Versículo Sagrado",
+      fields: [
+        { name: "texto", label: "Texto do Versículo", widget: "text" },
+        { name: "referencia", label: "Referência Bíblica (ex: João 8:32)", widget: "string" }
+      ],
+      pattern: /^<div class="featured-verse"><blockquote>"([\s\S]*?)"<\/blockquote><cite>— (.*?) —<\/cite><\/div>$/,
+      fromBlock: function(match) { return { texto: match[1], referencia: match[2] }; },
+      toBlock: function(obj) {
+        return `<div class="featured-verse"><blockquote>"${obj.texto || ''}"</blockquote><cite>— ${obj.referencia || ''} —</cite></div>\n\n`;
+      },
+      toPreview: function(obj) {
+        return `
+          <div style="background: linear-gradient(135deg, #1c1510, #140f0b); border-left: 3px solid #b8922e; padding: 1.5rem; margin: 1.5rem 0; text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,0.6);">
+            <blockquote style="font-family: 'IM Fell English', serif; font-size: 1.1rem; font-style: italic; color: #e6dcce; margin-bottom: 0.5rem;">"${obj.texto || ''}"</blockquote>
+            <cite style="font-family: 'Cinzel', serif; font-size: 0.75rem; color: #b8922e; letter-spacing: 2px; text-transform: uppercase; font-style: normal;">— ${obj.referencia || ''} —</cite>
+          </div>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
