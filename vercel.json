@@ -1,17 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/admin/config.yml",
-      "destination": "/admin/config.yml"
-    },
-    {
-      "source": "/admin/:path*",
-      "destination": "/admin/index.html"
-    },
-    {
-      "source": "/artigos/:slug",
-      "destination": "/artigos/post.html?slug=:slug"
-    }
+    { "source": "/admin/config.yml", "destination": "/admin/config.yml" },
+    { "source": "/admin/:path*", "destination": "/admin/:path*" }
   ]
 }
