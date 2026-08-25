@@ -11,7 +11,7 @@
     <meta property="og:url" content="">
     <meta property="og:image" content="">
 
-    <!-- ✝️ FAVICONS ORIGINAIS RESTAURADOS E FUNCIONANDO -->
+    <!-- FAVICONS ORIGINAIS -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
     <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
     <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='6' y='0' width='4' height='16' fill='%23b8922e' rx='1'/%3E%3Crect x='2' y='4' width='12' height='3' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
@@ -35,7 +35,6 @@
             min-height: 100vh; position: relative;
         }
 
-        /* REGRA FORÇADA DE TEXTO JUSTIFICADO */
         p, .article-intro, .article-body p, .custom-box {
             text-align: justify !important;
             text-justify: inter-word !important;
@@ -43,7 +42,6 @@
             hyphens: auto !important;
         }
 
-        /* 🗿 TEXTURA REALISTA DE ROCHA ESCURA E FISSURAS */
         body::before {
             content: ''; position: fixed; inset: 0;
             background:
@@ -199,17 +197,14 @@
             if (!slug) { showError(); return; }
 
             try {
+                // Busca direta pelo repositório sem estourar o limite de requisições da API
                 const GITHUB_USER = 'corrigindoarota2026';
                 const GITHUB_REPO = 'corrigindo-a-rota';
-                const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/content/artigos?ref=main`;
+                const rawUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/content/artigos/${slug}.md`;
 
-                const response = await fetch(apiUrl);
-                const files = await response.json();
+                const contentResponse = await fetch(rawUrl);
+                if (!contentResponse.ok) { showError(); return; }
 
-                const file = files.find(f => f.name === `${slug}.md`);
-                if (!file) { showError(); return; }
-
-                const contentResponse = await fetch(file.download_url);
                 const content = await contentResponse.text();
 
                 const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
@@ -230,17 +225,17 @@
             document.getElementById('articleContainer').style.display = 'block';
 
             const dateObj = new Date(data.date);
-            const dateFormatted = dateObj.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+            const dateFormatted = isNaN(dateObj) ? '' : dateObj.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
 
             document.getElementById('articleMeta').textContent = `${(data.category || 'ESTUDO').toUpperCase()} · ${dateFormatted} · ${data.reading_time || 10} MIN DE LEITURA`;
             document.getElementById('articleTitle').textContent = data.title;
-            document.getElementById('articleIntro').textContent = data.description;
+            document.getElementById('articleIntro').textContent = data.description || '';
 
             if (data.featured_verse && data.featured_verse.text) {
                 document.getElementById('featuredVerse').innerHTML = `
                     <div class="featured-verse">
                         <blockquote>"${data.featured_verse.text}"</blockquote>
-                        <cite>— ${data.featured_verse.reference} —</cite>
+                        <cite>— ${data.featured_verse.reference || ''} —</cite>
                     </div>
                 `;
             }
