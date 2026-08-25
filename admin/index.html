@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -8,27 +8,28 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 
+  <!-- 1. WIDGET DE LOGIN NETLIFY IDENTITY -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- 2. DESATIVAR CARREGAMENTO DE CONFIG.YML EXTERNO (EVITA O ERRO 404) -->
   <script>
     window.CMS_MANUAL_INIT = true;
   </script>
 </head>
 <body>
-  <!-- Decap CMS Engine -->
+  <!-- 3. MOTOR DO DECAP CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
+  <!-- 4. CONFIGURAÇÃO UNIFICADA E COMPONENTES VISUAIS -->
   <script>
-    // Inicialização para Vercel / GitHub
     CMS.init({
       config: {
-        load_config_file: false, // <-- Adicione esta linha aqui
+        load_config_file: false, // <-- IMPEDE O ERRO 404 DEFINITIVAMENTE
         backend: {
-          name: "github",
-          repo: "seu-usuario/seu-repositorio",
-          branch: "main"
-        backend: {
-          name: "github",
-          repo: "corrigindoarota2026/corrigindo-a-rota"
-          branch: "main"
+          name: "git-gateway",
+          branch: "main",
+          identity_url: "https://corrigindoarota.netlify.app/.netlify/identity",
+          gateway_url: "https://corrigindoarota.netlify.app/.netlify/git/github"
         },
         media_folder: "static/img",
         public_folder: "/static/img",
@@ -56,7 +57,7 @@
       }
     });
 
-    // 1. REGISTRAR COMPONENTE: CAIXA ELEGANTE
+    // --- COMPONENTE VISUAL 1: CAIXA ELEGANTE ---
     CMS.registerEditorComponent({
       id: "caixa_elegante",
       label: "📦 Caixa Elegante",
@@ -74,7 +75,7 @@
       }
     });
 
-    // 2. REGISTRAR COMPONENTE: DESTAQUE ENTRE RETAS
+    // --- COMPONENTE VISUAL 2: DESTAQUE ENTRE RETAS ---
     CMS.registerEditorComponent({
       id: "destaque_dourado",
       label: "✨ Destaque entre Retas",
@@ -91,7 +92,7 @@
       }
     });
 
-    // 3. REGISTRAR COMPONENTE: VERSÍCULO SAGRADO
+    // --- COMPONENTE VISUAL 3: VERSÍCULO SAGRADO ---
     CMS.registerEditorComponent({
       id: "versiculo_sagrado",
       label: "📖 Versículo Sagrado",
@@ -111,60 +112,6 @@
             <cite style="font-family: 'Cinzel', serif; font-size: 0.75rem; color: #b8922e; letter-spacing: 2px; text-transform: uppercase; font-style: normal;">— ${obj.referencia || ''} —</cite>
           </div>
         `;
-      }
-    });
-  </script>
-</body>
-</html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel Administrativo — Corrigindo a Rota</title>
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='13' y='1' width='6' height='30' fill='%23b8922e' rx='1'/%3E%3Crect x='4' y='9' width='24' height='5' fill='%23b8922e' rx='1'/%3E%3C/svg%3E">
-
-  <!-- AVISAR AO EDITOR QUE A CONFIGURAÇÃO É EMBUTIDA -->
-  <script>
-    window.CMS_MANUAL_INIT = true;
-  </script>
-</head>
-<body>
-  <!-- Decap CMS Engine -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-  <!-- CONFIGURAÇÃO EMBUTIDA PARA VERCEL / GITHUB -->
-  <script>
-    CMS.init({
-      config: {
-        backend: {
-          name: "github",
-          repo: "corrigindoarota2026/corrigindo-a-rota"
-          branch: "main"
-        },
-        media_folder: "static/img",
-        public_folder: "/static/img",
-        locale: "pt",
-        collections: [
-          {
-            name: "artigos",
-            label: "📜 Artigos e Estudos",
-            label_singular: "Artigo",
-            folder: "content/artigos",
-            create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            fields: [
-              { label: "Status", name: "status", widget: "select", options: ["rascunho", "publicado"], default: "rascunho" },
-              { label: "Título do Artigo", name: "title", widget: "string" },
-              { label: "Resumo (WhatsApp)", name: "description", widget: "text" },
-              { label: "Categoria", name: "category", widget: "select", options: ["heresias", "teologia", "manuscritos", "falsos-mestres", "testamento", "vida-crista", "alertas", "pais-igreja", "apologetica"] },
-              { label: "Data", name: "date", widget: "datetime" },
-              { label: "Tempo de Leitura (min)", name: "reading_time", widget: "number", default: 10 },
-              { label: "Imagem de Capa", name: "featured_image", widget: "image", required: false },
-              { label: "Corpo do Artigo", name: "body", widget: "markdown" }
-            ]
-          }
-        ]
       }
     });
   </script>
